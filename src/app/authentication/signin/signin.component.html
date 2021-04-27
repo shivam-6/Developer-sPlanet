@@ -1,0 +1,45 @@
+<div class="col-md-10">
+    <div class="row">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+            <nb-card style="margin-top:25%;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
+                <nb-card-body style="padding: 2rem;">
+                    <form [formGroup]="signinform" (ngSubmit)="submitSigninForm()">
+                        <h3 class="text-center">Signin Here</h3>
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <button class="w-100" nbButton status="danger" (click)="loginWithGoogle()"><nb-icon icon="google"></nb-icon>GOOGLE</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="w-100" nbButton status="primary"><nb-icon icon="facebook"></nb-icon>FACEBOOK</button>
+                            </div>
+                        </div>
+                        <h5 class="text-center mt-3">OR</h5>
+                        <mat-form-field class="mt-3 w-100" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input type="text" matInput formControlName="email">
+                        </mat-form-field>
+        
+        
+                        <mat-form-field class="mt-2 w-100" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input type="text" matInput formControlName="password">
+                        </mat-form-field>
+        
+                        <button class="w-100 mt-5" nbButton status="primary">Submit</button>
+                    </form>
+
+                    <div class="mt-3">
+                        
+                        <a style="font-family: Roboto;text-decoration: none;" [routerLink]="['/app/signup']">Not Registered Yet?</a>
+                        <div class="float-end">
+                            <a style="font-family: Roboto;text-decoration: none;" [routerLink]="['/app/reset']">Forgot Password?</a>
+                        </div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>
