@@ -65,6 +65,7 @@ import { AddVideoComponent } from './user/add-video/add-video.component';
     FormsModule,
     SweetAlert2Module,
     SocialLoginModule,
+   
   ],
   providers: [
     {
