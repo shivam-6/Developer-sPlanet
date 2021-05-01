@@ -6,9 +6,8 @@
         <div class="col-md-4">
             <nb-card style="margin-top:25%;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
                 <nb-card-body style="padding: 2rem;">
-                    <form [formGroup]="signinform" (ngSubmit)="submitSigninForm()">
-                        <h3 class="text-center">Signin Here</h3>
-                        <div class="row mt-4">
+                    <h3 class="text-center">Signin Here</h3>
+                    <div class="row mt-4">
                             <div class="col-6">
                                 <button class="w-100" nbButton status="danger" (click)="loginWithGoogle()"><nb-icon icon="google"></nb-icon>GOOGLE</button>
                             </div>
@@ -16,6 +15,9 @@
                                 <button class="w-100" nbButton status="primary"><nb-icon icon="facebook"></nb-icon>FACEBOOK</button>
                             </div>
                         </div>
+                    <form [formGroup]="signinform" (ngSubmit)="submitSigninForm()">
+                        
+                        
                         <h5 class="text-center mt-3">OR</h5>
                         <mat-form-field class="mt-3 w-100" appearance="outline">
                             <mat-label>Email</mat-label>
@@ -25,7 +27,7 @@
         
                         <mat-form-field class="mt-2 w-100" appearance="outline">
                             <mat-label>Password</mat-label>
-                            <input type="text" matInput formControlName="password">
+                            <input type="password" matInput formControlName="password">
                         </mat-form-field>
         
                         <button class="w-100 mt-5" nbButton status="primary">Submit</button>

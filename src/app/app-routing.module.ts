@@ -11,6 +11,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginGuard } from './guards/login.guard';
+import { HomeComponent } from './authentication/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
       { path: 'reset', component: ResetPasswordComponent },
+      { path: 'home', component: HomeComponent },
     ],
   },
 
