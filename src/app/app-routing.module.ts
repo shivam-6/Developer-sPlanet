@@ -11,7 +11,8 @@ import { AdminGuard } from './guards/admin.guard';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginGuard } from './guards/login.guard';
-import { HomeComponent } from './authentication/home/home.component';
+import { AddVideoComponent } from './user/add-video/add-video.component';
+import { ManageVideoComponent } from './user/manage-video/manage-video.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -44,6 +45,8 @@ const routes: Routes = [
     children: [
       { path: '', component: ProfileComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'addvideo', component: AddVideoComponent },
+      { path: 'managevideo', component: ManageVideoComponent },
     ],
   },
 ];

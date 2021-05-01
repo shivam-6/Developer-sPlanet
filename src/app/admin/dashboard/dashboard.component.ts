@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import * as CanvasJS from '../../../assets/canvasjs.min';
 import { Observable } from 'rxjs';
-import { BlogService } from 'src/app/services/blog.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -14,12 +14,12 @@ export class DashboardComponent implements OnInit {
   blogsList: any;
   constructor(
     public userService: UserService,
-    private blogservice: BlogService
+    
   ) {}
 
   ngOnInit(): void {
     this.getUsers();
-    this.getBlogs();
+   
   }
 
   // getSellers() {
@@ -37,13 +37,6 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  getBlogs() {
-    this.blogservice.getAllBlogs().subscribe((data) => {
-      console.log(data);
-      this.blogsList = data;
-      this.prepareBlogData(this.blogsList);
-    });
-  }
 
   drawchart(id, datapoints, title, unit, xlabel) {
     var chart = new CanvasJS.Chart(id, {
@@ -81,19 +74,6 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  prepareBlogData(blogs) {
-    this.getDatewiseValues(blogs, 'created').subscribe((data) => {
-      console.log(data);
-      let regData = data;
-      this.drawchart(
-        'blogByDate',
-        regData,
-        'Blogs Data',
-        'blog(s) created',
-        'No. of Blogs'
-      );
-    });
-  }
 
   getDatewiseValues(records, colname) {
     console.log(records);

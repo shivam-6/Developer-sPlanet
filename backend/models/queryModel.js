@@ -1,4 +1,4 @@
-const { stringifyConfiguration } = require('tslint/lib/configuration');
+
 const mongoose = require('../connection');
 
 const schema = mongoose.Schema({

@@ -1,1 +1,64 @@
-<p>add-video works!</p>
+<div class="col-md-11 mx-auto">
+    
+
+    <div class="col-md-6 mx-auto">
+        <nb-card class="main" style="margin-top:10%;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
+            <nb-card-body style="padding: 2rem;">
+                <form [formGroup]="videoform" (ngSubmit)="submitAddVideoForm()">
+                    <h3 class="text-center" style="color: black; font-size:1.5rem; font-weight:450;">Upload Video</h3>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <mat-form-field class="mt-2 w-100" appearance="outline">
+                                <mat-label> Title </mat-label>
+                                <input type="text" matInput formControlName="title">
+                            </mat-form-field>
+
+                            <mat-form-field class="mt-2 w-100" appearance="outline">
+                                <mat-label>Discription</mat-label>
+                                <input type="email" matInput formControlName="desc">
+                            </mat-form-field>
+                            
+                            <div class="input-group" style="margin-top: 21px;">
+                                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                <button class="btn btn-outline-primary" type="button" id="inputGroupFileAddon04">Upload</button>
+                              </div>
+
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <select class="form-select mt-3" aria-label="Default select example">
+                                <option selected>Community</option>
+                                <option value="1">Angular</option>
+                                <option value="2">java</option>
+                                <option value="3">python</option>
+                              </select>
+                             
+                              <select class="form-select " style="margin-top: 56px;" aria-label="Default select example">
+                                <option selected>Language</option>
+                                <option value="1">java</option>
+                                <option value="2">python</option>
+                                <option value="3">html</option>
+                              </select>
+
+                              <select class="form-select" style="margin-top: 56px;" aria-label="Default select example">
+                                <option selected>Framework</option>
+                                <option value="1">Angular</option>
+                                <option value="2">React</option>
+                                <option value="3">Django</option>
+                              </select>
+                        </div>
+                
+                    </div>    
+                     
+
+                    
+                  
+                    <div class="text-center"><button class="w-50 mt-5" nbButton status="primary">Upload</button></div>
+                   
+                     <div class="text-center mt-4"><p style="font-size:1.1rem; color: black; font-weight: bold;">Having Trouble?<a href="" style="font-weight: bold;margin-left: 3px; color: blueviolet;font-size: 1.2rem;">Contact-Us</a></p> </div>
+                </form>
+              
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

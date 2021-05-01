@@ -50,6 +50,7 @@ export class UserService {
     this.loggedin = false;
   }
 
+ 
   refreshUser() {
     this.http
       .get(this.url + '/getbyid/' + this.currentUser._id)

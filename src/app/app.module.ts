@@ -32,6 +32,7 @@ import { GoogleLoginProvider } from 'angularx-social-login';
 import { app_config } from 'src/config';
 import { AddVideoComponent } from './user/add-video/add-video.component';
 import { HomeComponent } from './authentication/home/home.component';
+import { ManageVideoComponent } from './user/manage-video/manage-video.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { HomeComponent } from './authentication/home/home.component';
     ManageUsersComponent,
     AddVideoComponent,
     HomeComponent,
+    ManageVideoComponent,
   ],
   imports: [
     BrowserModule,
