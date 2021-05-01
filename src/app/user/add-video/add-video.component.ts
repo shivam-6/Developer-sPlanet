@@ -89,10 +89,9 @@ export class AddVideoComponent implements OnInit {
       Swal.fire({
         icon: 'success',
         title: 'Great!',
-        text: 'Successfully Registered, Now Login to Continue.',
-      }).then(() => {
-        this.router.navigate(['/app/signin']);
-      });
+        text: 'Video Uploaded',
+      })
+    
     });
   }
 }

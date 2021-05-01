@@ -12,6 +12,7 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
 import { ProfileComponent } from './profile/profile.component';
 import { LoginGuard } from './guards/login.guard';
 import { AddVideoComponent } from './user/add-video/add-video.component';
+import { ManageVideoComponent } from './user/manage-video/manage-video.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -44,6 +45,7 @@ const routes: Routes = [
       { path: '', component: ProfileComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'addvideo', component: AddVideoComponent },
+      { path: 'managevideo', component: ManageVideoComponent },
     ],
   },
 ];
