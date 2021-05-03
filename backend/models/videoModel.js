@@ -6,9 +6,8 @@ const schema = mongoose.Schema({
   desc:String,
   data : Object ,
   developer : {type:mongoose.Types.ObjectId, ref:'Developers' },
-  data: Object,
- created: String,
- category: String,
+  created: String,
+  category: String,
 
 
 })
