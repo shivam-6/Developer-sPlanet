@@ -13,6 +13,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginGuard } from './guards/login.guard';
 import { AddVideoComponent } from './user/add-video/add-video.component';
 import { ManageVideoComponent } from './user/manage-video/manage-video.component';
+import { HomeComponent } from './authentication/home/home.component';
+import { ListVideoComponent } from './authentication/list-video/list-video.component';
+import { ViewVideoComponent } from './authentication/view-video/view-video.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -24,6 +27,8 @@ const routes: Routes = [
       { path: 'signin', component: SigninComponent },
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'home', component: HomeComponent },
+      { path: 'view/:id', component: ViewVideoComponent },
+      { path: 'list', component: ListVideoComponent },
     ],
   },
 

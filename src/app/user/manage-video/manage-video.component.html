@@ -6,12 +6,32 @@
         </nb-card-header>
         <nb-card-body>
             <nb-accordion *ngIf="videosList">
-                <nb-accordion-item *ngFor="let user of videosList">
+                <nb-accordion-item *ngFor="let video of videosList">
                   <nb-accordion-item-header>
-                    {{user.video}}
+                    {{video.title}}
                   </nb-accordion-item-header>
                   <nb-accordion-item-body>
-                    {{user.email}}
+                    {{video.desc}}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img [src]="url+video.thumb" alt="" class="img-fluid">
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Views : </p>
+                                    <p>Upvotes : </p>
+                                    <p>Comments : </p>
+                                </div>
+                                <div class="col-8">
+                                    <p>{{video.views}}</p>
+                                    <p>{{video.upvotes}}</p>
+                                    <p>{{video.comments.length}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row mt-5">
                         <div class="col text-center">
                             <button class="col-10" nbButton (click)="updateUser(user._id)">Edit</button>

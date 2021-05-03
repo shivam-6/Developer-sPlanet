@@ -40,7 +40,7 @@ export class UserService {
   }
 
   uploadAvatar(file: any) {
-    return this.http.post(app_config.api_url + '/util/addimg', file);
+    return this.http.post(app_config.api_url + '/util/addfile', file);
   }
 
   logout() {
@@ -50,7 +50,6 @@ export class UserService {
     this.loggedin = false;
   }
 
- 
   refreshUser() {
     this.http
       .get(this.url + '/getbyid/' + this.currentUser._id)

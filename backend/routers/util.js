@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage })
-router.post('/addimg', upload.single('image'), (req, res) => {
+router.post('/addfile', upload.single('file'), (req, res) => {
     console.log(req.body);
     res.json({ message: "File upload success" })
 })

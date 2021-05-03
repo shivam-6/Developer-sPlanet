@@ -1,7 +1,7 @@
 <div class="col-md-11 mx-auto">
     
 
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-10 mx-auto">
         <nb-card class="main" style="margin-top:10%;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
             <nb-card-body style="padding: 2rem;">
                 <form [formGroup]="videoform" (ngSubmit)="submitAddVideoForm()">
@@ -19,10 +19,9 @@
                             </mat-form-field>
                             
                             <div class="input-group" style="margin-top: 21px;">
-                                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                <button class="btn btn-outline-primary" type="button" id="inputGroupFileAddon04">Upload</button>
-                              </div>
-
+                                <input type="file" (change)="uploadAvatar($event)" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                <img [src]="imgURL" alt="" *ngIf="imgURL" class="img-fluid">
+                            </div>
                         </div>
                         
                         <div class="col-md-6">
@@ -32,20 +31,17 @@
                                 <option value="2">java</option>
                                 <option value="3">python</option>
                               </select>
-                             
-                              <select class="form-select " style="margin-top: 56px;" aria-label="Default select example">
-                                <option selected>Language</option>
-                                <option value="1">java</option>
-                                <option value="2">python</option>
-                                <option value="3">html</option>
-                              </select>
 
-                              <select class="form-select" style="margin-top: 56px;" aria-label="Default select example">
-                                <option selected>Framework</option>
+                              <select class="form-select" style="margin-top: 56px;" aria-label="Default select example" formControlName="category">
+                                <option selected>Category</option>
                                 <option value="1">Angular</option>
                                 <option value="2">React</option>
                                 <option value="3">Django</option>
                               </select>
+
+                              <div class="input-group" style="margin-top: 21px;">
+                                <input type="file" (change)="uploadVideo($event)" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                            </div>
                         </div>
                 
                     </div>    
