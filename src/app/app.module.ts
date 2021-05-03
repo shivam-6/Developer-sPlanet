@@ -4,7 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule } from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbSidebarModule,
+  NbMenuModule,
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
 import { LayoutComponent as UserLayout } from './user/layout/layout.component';
@@ -31,8 +36,10 @@ import {
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { app_config } from 'src/config';
 import { AddVideoComponent } from './user/add-video/add-video.component';
+import { HomeComponent } from './authentication/home/home.component';
 import { ManageVideoComponent } from './user/manage-video/manage-video.component';
-
+import { ViewVideoComponent } from './authentication/view-video/view-video.component';
+import { ListVideoComponent } from './authentication/list-video/list-video.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +54,10 @@ import { ManageVideoComponent } from './user/manage-video/manage-video.component
     ProfileComponent,
     ManageUsersComponent,
     AddVideoComponent,
+    HomeComponent,
     ManageVideoComponent,
-
+    ViewVideoComponent,
+    ListVideoComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,9 +67,9 @@ import { ManageVideoComponent } from './user/manage-video/manage-video.component
     NbLayoutModule,
     NbEvaIconsModule,
     NbSidebarModule.forRoot(),
-
+    NbMenuModule.forRoot(),
     NebularModule,
-    NgsRevealModule,
+    // NgsRevealModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
@@ -69,7 +78,6 @@ import { ManageVideoComponent } from './user/manage-video/manage-video.component
     FormsModule,
     SweetAlert2Module,
     SocialLoginModule,
-   
   ],
   providers: [
     {

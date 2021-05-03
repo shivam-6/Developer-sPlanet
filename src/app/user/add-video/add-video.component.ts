@@ -2,23 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { VideoService } from 'src/app/services/video.service';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-video',
   templateUrl: './add-video.component.html',
-  styleUrls: ['./add-video.component.css']
+  styleUrls: ['./add-video.component.css'],
 })
 export class AddVideoComponent implements OnInit {
-
   videoform: any;
   avatarImage: any;
   erroMsg: string;
   imgURL: string | ArrayBuffer;
+  videofilename;
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private videoService: VideoService
   ) {}
 
   ngOnInit(): void {
@@ -34,16 +36,16 @@ export class AddVideoComponent implements OnInit {
       .classList.remove('upload');
   }
 
-  initAddVideoForm () {
+  initAddVideoForm() {
     this.videoform = this.fb.group({
       title: '',
       desc: '',
-      // email: '',
-      // password: '',
-      // confirm: '',
-      // age: 0,
-      // created: new Date(),
-      // isadmin: false,
+      created: new Date(),
+      developer: this.userService.currentUser,
+      category: '',
+      views: 0,
+      upvotes: 0,
+      commens: [],
     });
   }
 
@@ -59,7 +61,19 @@ export class AddVideoComponent implements OnInit {
     this.preview(event.target.files);
     let formData = new FormData();
     this.avatarImage = files[0].name;
-    formData.append('image', files[0], files[0].name);
+    formData.append('file', files[0], files[0].name);
+    this.userService.uploadAvatar(formData).subscribe((response) => {
+      console.log(response);
+    });
+  }
+
+  uploadVideo(event) {
+    let files = event.target.files;
+    if (files.length === 0) return;
+
+    let formData = new FormData();
+    this.videofilename = files[0].name;
+    formData.append('file', files[0], files[0].name);
     this.userService.uploadAvatar(formData).subscribe((response) => {
       console.log(response);
     });
@@ -83,15 +97,16 @@ export class AddVideoComponent implements OnInit {
 
   submitAddVideoForm() {
     let formdata = this.videoform.value;
-    formdata.avatar = this.avatarImage;
-    this.userService.addUser(formdata).subscribe((res) => {
+    formdata.thumb = this.avatarImage;
+    formdata.file = this.videofilename;
+
+    this.videoService.addVideo(formdata).subscribe((res) => {
       console.log(res);
       Swal.fire({
         icon: 'success',
         title: 'Great!',
         text: 'Video Uploaded',
-      })
-    
+      });
     });
   }
 }

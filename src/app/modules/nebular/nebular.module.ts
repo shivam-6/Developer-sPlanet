@@ -9,7 +9,6 @@ import {
   NbUserModule,
   NbActionsModule,
   NbSearchModule,
-  NbMenuModule,
 } from '@nebular/theme';
 
 @NgModule({
@@ -23,7 +22,6 @@ import {
     NbIconModule,
     NbActionsModule,
     NbSearchModule,
-    NbMenuModule,
     NbActionsModule,
     NbCardModule,
   ],

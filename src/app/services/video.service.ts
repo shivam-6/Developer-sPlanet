@@ -4,16 +4,11 @@ import { Router } from '@angular/router';
 import { app_config } from 'src/config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class VideoService {
-
   url = app_config.api_url + '/video';
- 
-
-  constructor(private http: HttpClient, private router: Router) {
-   
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   addVideo(data: any) {
     return this.http.post(this.url + '/add', data);
@@ -34,6 +29,4 @@ export class VideoService {
   update(id: String, data: Object) {
     return this.http.put(this.url + '/update/' + id, data);
   }
-
 }
-

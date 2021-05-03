@@ -1,10 +1,10 @@
-const Model = require('../models/userModel');
+const Model = require('../models/videoModel');
 const router = require('express').Router();
 
 router.post('/add', (req, res) => {
     new Model(req.body).save()
         .then(data => {
-            console.log('user data added');
+            console.log('video data added');
             res.status(200).json({ message: 'success' });
         })
         .catch(err => {
@@ -17,7 +17,7 @@ router.get('/getbycategory/:category', (req, res) => {
 
     Model.find({ category: req.params.category })
         .then(data => {
-            console.log('user fetched by email');
+            console.log('video fetched by category');
             res.status(200).json(data);
         })
         .catch(err => {
@@ -30,7 +30,7 @@ router.get('/getbyid/:id', (req, res) => {
 
     Model.findById(req.params.id)
         .then(data => {
-            console.log('user fetched by id');
+            console.log('video fetched by id');
             res.status(200).json(data);
         })
         .catch(err => {
@@ -60,7 +60,7 @@ router.get('/getall', (req, res) => {
             console.log('user data fetched ');
             res.status(200).json(data);
         })
-        .catch(err => { 
+        .catch(err => {
             console.error(err);
             res.status(500).json(err);
         })
