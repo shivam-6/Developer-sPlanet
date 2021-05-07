@@ -40,6 +40,7 @@ import { HomeComponent } from './authentication/home/home.component';
 import { ManageVideoComponent } from './user/manage-video/manage-video.component';
 import { ViewVideoComponent } from './authentication/view-video/view-video.component';
 import { ListVideoComponent } from './authentication/list-video/list-video.component';
+import { CreateQueryComponent } from './create-query/create-query.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ListVideoComponent } from './authentication/list-video/list-video.compo
     ManageVideoComponent,
     ViewVideoComponent,
     ListVideoComponent,
+    CreateQueryComponent,
   ],
   imports: [
     BrowserModule,

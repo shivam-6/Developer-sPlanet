@@ -1,0 +1,15 @@
+<div class="col-md-10 mx-auto">
+    <nb-card>
+        <nb-card-body>
+            <form [formGroup]="queryform">
+
+                <mat-form-field>
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Be Specific what you are asking.." formControlName="title">
+                </mat-form-field>
+            </form>
+
+            <textarea id="md" cols="30" rows="10" [(ngModel)]="querytext"></textarea>
+        </nb-card-body>
+    </nb-card>
+</div>

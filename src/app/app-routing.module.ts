@@ -16,6 +16,7 @@ import { ManageVideoComponent } from './user/manage-video/manage-video.component
 import { HomeComponent } from './authentication/home/home.component';
 import { ListVideoComponent } from './authentication/list-video/list-video.component';
 import { ViewVideoComponent } from './authentication/view-video/view-video.component';
+import { CreateQueryComponent } from './create-query/create-query.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -52,6 +53,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'addvideo', component: AddVideoComponent },
       { path: 'managevideo', component: ManageVideoComponent },
+      { path: 'query', component: CreateQueryComponent },
     ],
   },
 ];

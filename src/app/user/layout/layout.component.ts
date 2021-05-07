@@ -27,6 +27,11 @@ export class LayoutComponent implements OnInit {
       icon: 'person-outline',
       link: 'managevideo',
     },
+    {
+      title: 'New Query',
+      icon: 'person-outline',
+      link: 'query',
+    },
   ];
   constructor(
     private sidebar: NbSidebarService,
