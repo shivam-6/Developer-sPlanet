@@ -1,3 +1,70 @@
-<div class="col-md-11" *ngIf="videoData">
-    <video [src]="url+videoData.file" controls></video>
+<div class="container">
+    <div class="row" style="height: 70vh;" *ngIf="videoData">
+        <div class="col-md">
+            <nb-card>
+                <nb-card-body>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="">
+                                <nb-icon icon="eye-outline" ></nb-icon>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <div class="col-6 mx-auto">
+                                <p class="figure">{{videoData.views}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="">
+                                <nb-icon icon="arrow-up-outline" ></nb-icon>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <div class="col-6 mx-auto">
+                                <p class="figure">{{videoData.upvotes}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="">
+                                <nb-icon icon="message-square-outline" ></nb-icon>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <div class="col-6 mx-auto">
+                                <p class="figure">{{videoData.comments}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+        <div class="col-md-6">
+            <video class="img-fluid" [src]="url+videoData.file" #video (loadedmetadata)="onMetadata($event, video)" controls></video>
+            
+            <nb-card>
+                <nb-card-body>
+                    <h2>Discussion</h2>
+                    <hr>
+                    
+                </nb-card-body>
+            </nb-card>
+            
+        </div>
+        <div class="col-md-4">
+            <nb-card>
+                <nb-card-body>
+                    <h2>Recommendations</h2>
+                    lorem1000
+                </nb-card-body>
+            </nb-card>
+        </div>
+    
+    </div>
 </div>

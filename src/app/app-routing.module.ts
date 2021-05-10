@@ -17,11 +17,12 @@ import { HomeComponent } from './authentication/home/home.component';
 import { ListVideoComponent } from './authentication/list-video/list-video.component';
 import { ViewVideoComponent } from './authentication/view-video/view-video.component';
 import { CreateQueryComponent } from './create-query/create-query.component';
+import { ListQueriesComponent } from './list-queries/list-queries.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
   {
-    path: 'app',
+    path: '',
     component: AppLayoutComponent,
     children: [
       { path: 'signup', component: SignupComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'home', component: HomeComponent },
       { path: 'view/:id', component: ViewVideoComponent },
-      { path: 'list', component: ListVideoComponent },
+      { path: 'listvideo', component: ListVideoComponent },
+      { path: 'listquery', component: ListQueriesComponent },
     ],
   },
 

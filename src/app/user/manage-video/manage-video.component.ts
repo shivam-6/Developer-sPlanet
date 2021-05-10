@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
 import { UserService } from 'src/app/services/user.service';
 import { VideoService } from 'src/app/services/video.service';
 import { app_config } from 'src/config';
@@ -18,7 +19,8 @@ export class ManageVideoComponent implements OnInit {
   constructor(
     public userService: UserService,
     private router: Router,
-    private videoService: VideoService
+    private videoService: VideoService,
+    private toastrService: NbToastrService
   ) {}
 
   ngOnInit(): void {
@@ -46,13 +48,11 @@ export class ManageVideoComponent implements OnInit {
       if (result.isConfirmed) {
         this.videoService.deleteVideo(id).subscribe((res) => {
           console.log(res);
-          Swal.fire({
-            title: 'Deleted!',
-            text: 'Your blog has been deleted.',
-            icon: 'info',
-          }).then(() => {
-            this.fetchVideos();
+          this.toastrService.info({
+            title: 'Deleted',
+            message: 'Video Successfully deleted',
           });
+          this.fetchVideos();
         });
       }
     });

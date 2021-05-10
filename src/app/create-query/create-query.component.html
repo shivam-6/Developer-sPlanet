@@ -3,13 +3,32 @@
         <nb-card-body>
             <form [formGroup]="queryform">
 
-                <mat-form-field>
+                <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Title</mat-label>
                     <input matInput placeholder="Be Specific what you are asking.." formControlName="title">
                 </mat-form-field>
-            </form>
 
+                <!-- <nb-form-field class="mt-3">
+                    <nb-icon nbSuffix icon="flag-outline"></nb-icon>
+                    <input type="text" nbInput formControlName="title">
+                  </nb-form-field> -->
+            </form>
+            <nb-form-field class="mt-3">
+                <nb-tag-list (tagRemove)="onTopicRemove($event)">
+                  <nb-tag *ngFor="let topic of selTopics" [text]="topic" removable></nb-tag>
+                  <input type="text" nbTagInput (tagAdd)="onTopicAdd($event.value)" [nbAutocomplete]="autocomplete" fullWidth>
+                </nb-tag-list>
+          
+                <nb-icon nbSuffix icon="search" pack="eva"></nb-icon>
+              </nb-form-field>
+          
+              <nb-autocomplete #autocomplete (selectedChange)="onTopicAdd($event)">
+                <nb-option *ngFor="let topic of topics" [value]="topic">{{ topic }}</nb-option>
+            </nb-autocomplete>
+            <label class="mt-4">Describe Your Query</label>
             <textarea id="md" cols="30" rows="10" [(ngModel)]="querytext"></textarea>
+
+            <button class="mt-5" (click)="publishQuery()" nbButton hero status="danger">Publish Query</button>
         </nb-card-body>
     </nb-card>
 </div>

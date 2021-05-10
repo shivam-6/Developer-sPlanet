@@ -9,6 +9,9 @@ import {
   NbUserModule,
   NbActionsModule,
   NbSearchModule,
+  NbFormFieldModule,
+  NbAutocompleteModule,
+  NbTagModule,
 } from '@nebular/theme';
 
 @NgModule({
@@ -24,6 +27,9 @@ import {
     NbSearchModule,
     NbActionsModule,
     NbCardModule,
+    NbFormFieldModule,
+    NbAutocompleteModule,
+    NbTagModule,
   ],
   imports: [CommonModule],
 })

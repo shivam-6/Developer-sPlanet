@@ -10,6 +10,8 @@ import { app_config } from 'src/config';
 })
 export class ViewVideoComponent implements OnInit {
   videoData;
+  playtime = 0;
+  countOn = 10;
   url = app_config.api_url + '/';
   constructor(
     private actRoute: ActivatedRoute,
@@ -21,5 +23,21 @@ export class ViewVideoComponent implements OnInit {
     this.videoService.getVideoById(id).subscribe((data) => {
       this.videoData = data;
     });
+  }
+
+  addView() {}
+
+  onMetadata(e, video) {
+    console.log('metadata: ', e);
+    console.log('duration: ', video.duration);
+
+    video.onplay = () => {
+      console.log('played');
+      console.log('duration: ', video.currentTime);
+    };
+
+    video.onpause = () => {
+      console.log('paused');
+    };
   }
 }

@@ -9,6 +9,7 @@ import {
   NbLayoutModule,
   NbSidebarModule,
   NbMenuModule,
+  NbToastrModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -23,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 
 import { NgsRevealModule } from 'ngx-scrollreveal';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -41,6 +43,7 @@ import { ManageVideoComponent } from './user/manage-video/manage-video.component
 import { ViewVideoComponent } from './authentication/view-video/view-video.component';
 import { ListVideoComponent } from './authentication/list-video/list-video.component';
 import { CreateQueryComponent } from './create-query/create-query.component';
+import { ListQueriesComponent } from './list-queries/list-queries.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,7 @@ import { CreateQueryComponent } from './create-query/create-query.component';
     ViewVideoComponent,
     ListVideoComponent,
     CreateQueryComponent,
+    ListQueriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +84,8 @@ import { CreateQueryComponent } from './create-query/create-query.component';
     FormsModule,
     SweetAlert2Module,
     SocialLoginModule,
+    MatSnackBarModule,
+    NbToastrModule.forRoot(),
   ],
   providers: [
     {

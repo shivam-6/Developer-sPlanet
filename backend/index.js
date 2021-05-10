@@ -5,6 +5,8 @@ const port = api_config.port;
 const userRouter = require('./routers/userManager');
 const videoRouter = require('./routers/videoManager');
 const utilRouter = require('./routers/util');
+const queryRouter = require('./routers/queryManager');
+
 const cors = require('cors');
 
 app.use(express.json());
@@ -13,6 +15,7 @@ app.use(cors());
 app.use('/user', userRouter);
 app.use('/util', utilRouter);
 app.use('/video', videoRouter);
+app.use('/query', queryRouter);
 
 
 app.use(express.static('./uploads'))

@@ -2,15 +2,15 @@
 const mongoose = require('../connection');
 
 const schema = mongoose.Schema({
-  title: String ,
-  data : Object ,
-  developer : {type:mongoose.Types.ObjectId, ref:'developers' },
-  community:{type:mongoose.Types.ObjectId, ref:'communities' },
+  title: String,
+  query: String,
+  data: Object,
+  developer: { type: mongoose.Types.ObjectId, ref: 'developers' },
   created: Date,
 
 })
 
 
-const model = mongoose.model('Users', schema);
+const model = mongoose.model('queries', schema);
 
 module.exports = model;
