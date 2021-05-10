@@ -20,7 +20,7 @@ import { CreateQueryComponent } from './create-query/create-query.component';
 import { ListQueriesComponent } from './list-queries/list-queries.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
+  { path: '', redirectTo: '/signin', pathMatch: 'full' },
   {
     path: '',
     component: AppLayoutComponent,
