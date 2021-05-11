@@ -48,6 +48,7 @@ import { ViewVideoComponent } from './authentication/view-video/view-video.compo
 import { ListVideoComponent } from './authentication/list-video/list-video.component';
 import { CreateQueryComponent } from './create-query/create-query.component';
 import { ListQueriesComponent } from './list-queries/list-queries.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { ListQueriesComponent } from './list-queries/list-queries.component';
     ListVideoComponent,
     CreateQueryComponent,
     ListQueriesComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
