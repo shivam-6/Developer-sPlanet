@@ -17,7 +17,7 @@ router.get('/getall', (req, res) => {
 
     Model.find({})
         .then(data => {
-            console.log('user data fetched ');
+            console.log('all data fetched ');
             res.status(200).json(data);
         })
         .catch(err => { 
@@ -30,7 +30,7 @@ router.get('/getbyquery/:query', (req, res) => {
 
     Model.find({ query: req.params.query })
         .then(data => {
-            console.log('user fetched by email');
+            console.log('new query fetched');
             res.status(200).json(data);
         })
         .catch(err => {
@@ -43,7 +43,7 @@ router.get('/getbydeveloper/:developer', (req, res) => {
 
     Model.find({ developer: req.params.developer })
         .then(data => {
-            console.log('user fetched by email');
+            console.log('Developer fetched');
             res.status(200).json(data);
         })
         .catch(err => {

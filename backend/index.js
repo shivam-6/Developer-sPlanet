@@ -7,10 +7,32 @@ const videoRouter = require('./routers/videoManager');
 const utilRouter = require('./routers/util');
 const queryRouter = require('./routers/queryManager');
 
-// this is for  socket.io at backened
+
+// This is how to initialize Socket.io at backend
+const http = require('http');
+const server = http.createServer(app);
+const io = require('socket.io')(server, {
+    cors: {
+        origin: "http://localhost:4200",
+        methods: ["GET", "POST"]
+    }
+});
+
+io.on('connection', (socket) => {
+    console.log('client connected!!');
+
+    socket.on('sendmsg', (data) => {
+        console.log('a message from client');
+        console.log(data);
+
+        data.reply = false;
+        socket.broadcast.emit('recmsg', data);
+    })
+
+})
+
 
 const cors = require('cors');
-
 app.use(express.json());
 app.use(cors());
 
@@ -22,6 +44,6 @@ app.use('/query', queryRouter);
 
 app.use(express.static('./uploads'))
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log('Hurray!!!!! server started on port ' + port);
 });

@@ -57,7 +57,7 @@ router.get('/getbydeveloper/:developer', (req, res) => {
 
     Model.find({ developer: req.params.developer })
         .then(data => {
-            console.log('developers are ');
+            console.log('developer fetched ');
             res.status(200).json(data);
         })
         .catch(err => {

@@ -18,6 +18,7 @@ import { ListVideoComponent } from './authentication/list-video/list-video.compo
 import { ViewVideoComponent } from './authentication/view-video/view-video.component';
 import { CreateQueryComponent } from './create-query/create-query.component';
 import { ListQueriesComponent } from './list-queries/list-queries.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -46,7 +47,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
     ],
   },
-  {
+  { 
     path: 'user',
     component: UserLayout,
     canActivate: [LoginGuard],
@@ -56,6 +57,7 @@ const routes: Routes = [
       { path: 'addvideo', component: AddVideoComponent },
       { path: 'managevideo', component: ManageVideoComponent },
       { path: 'query', component: CreateQueryComponent },
+      { path: 'chat', component: ChatComponent },
     ],
   },
 ];
