@@ -7,6 +7,8 @@ const videoRouter = require('./routers/videoManager');
 const utilRouter = require('./routers/util');
 const queryRouter = require('./routers/queryManager');
 
+// this is for  socket.io at backened
+
 const cors = require('cors');
 
 app.use(express.json());

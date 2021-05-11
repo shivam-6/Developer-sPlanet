@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { app_config } from 'src/config';
 import { QueryService } from '../services/query.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { QueryService } from '../services/query.service';
 })
 export class ListQueriesComponent implements OnInit {
   queryList;
+
+  url = app_config.api_url + '/';
   constructor(private queryService: QueryService) {}
 
   ngOnInit(): void {

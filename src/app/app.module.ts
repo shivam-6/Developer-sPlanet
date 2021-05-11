@@ -10,6 +10,10 @@ import {
   NbSidebarModule,
   NbMenuModule,
   NbToastrModule,
+
+  
+
+ 
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -44,6 +48,7 @@ import { ViewVideoComponent } from './authentication/view-video/view-video.compo
 import { ListVideoComponent } from './authentication/list-video/list-video.component';
 import { CreateQueryComponent } from './create-query/create-query.component';
 import { ListQueriesComponent } from './list-queries/list-queries.component';
+
 
 @NgModule({
   declarations: [
@@ -86,6 +91,8 @@ import { ListQueriesComponent } from './list-queries/list-queries.component';
     SocialLoginModule,
     MatSnackBarModule,
     NbToastrModule.forRoot(),
+
+   
   ],
   providers: [
     {

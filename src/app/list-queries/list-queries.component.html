@@ -1,1 +1,77 @@
-<p>list-queries works!</p>
+<div class="container">
+    <nb-card *ngFor="let query of queryList" style="border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
+        <nb-card-body style="padding: 2rem;">
+            <div class="row">
+              
+                <div class="col-md-12" style="border: 1px solid rgb(236, 0, 0);">
+                    <h2 style="color: black;font-family: arsenal;border-bottom: 1px solid rgb(11, 26, 235);">
+                        <a style="text-decoration: none; color: black;font-family: arsenal;">{{query.title}}</a>
+         
+                    </h2>
+
+                
+                     
+                    <nb-card>
+                        <nb-card-body >
+                         
+                            <div class="row " >
+                                <div class="col-2">
+                                    <div class="">
+                                        <i class="fas fa-user" style="font-size: 2.2rem;color: #18dcff;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="col-6 mx-auto text-center">
+                                        <p class="figure" style="font-size: 1.5rem; margin-top: 15px;">{{query.devloper}}</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row mt-4" >
+                                <div class="col-2">
+                                    <div class="">
+                                        <i class="fas fa-calendar-week" style="font-size: 2.2rem;color: #686de0;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="col-6 mx-auto text-center">
+                                        <p class="figure" style="font-size: 1.5rem; margin-top: 0px;">{{query.created}}</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </nb-card-body>
+                    </nb-card>
+
+
+                    <nb-card>
+                        <nb-card-body >
+                         
+                            <div class="row mt-2" >
+                                <div class="col-2">
+                                    <div class="">
+                                        <i class="far fa-question-circle" style="font-size: 2.2rem;color: #f0932b;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="col-6 mx-auto text-center">
+                                        <p class="figure" style="font-size: 1rem; margin-top: 25px;">{{query.query}}</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                         
+                        </nb-card-body>
+                    </nb-card>
+
+
+                </div>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>
+
+
