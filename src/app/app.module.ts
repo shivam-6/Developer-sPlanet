@@ -31,6 +31,7 @@ import { NgsRevealModule } from 'ngx-scrollreveal';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -49,6 +50,10 @@ import { ListVideoComponent } from './authentication/list-video/list-video.compo
 import { CreateQueryComponent } from './create-query/create-query.component';
 import { ListQueriesComponent } from './list-queries/list-queries.component';
 import { ChatComponent } from './chat/chat.component';
+import { ContactUsComponent } from './authentication/contact-us/contact-us.component';
+import { AboutUsComponent } from './authentication/about-us/about-us.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -71,6 +76,8 @@ import { ChatComponent } from './chat/chat.component';
     CreateQueryComponent,
     ListQueriesComponent,
     ChatComponent,
+    ContactUsComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +92,7 @@ import { ChatComponent } from './chat/chat.component';
     // NgsRevealModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     MatSelectModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -93,6 +101,8 @@ import { ChatComponent } from './chat/chat.component';
     SocialLoginModule,
     MatSnackBarModule,
     NbToastrModule.forRoot(),
+    MatNativeDateModule,
+    MatDatepickerModule
 
    
   ],

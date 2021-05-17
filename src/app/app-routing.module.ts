@@ -19,6 +19,8 @@ import { ViewVideoComponent } from './authentication/view-video/view-video.compo
 import { CreateQueryComponent } from './create-query/create-query.component';
 import { ListQueriesComponent } from './list-queries/list-queries.component';
 import { ChatComponent } from './chat/chat.component';
+import { ContactUsComponent } from './authentication/contact-us/contact-us.component';
+import { AboutUsComponent } from './authentication/about-us/about-us.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -58,6 +60,8 @@ const routes: Routes = [
       { path: 'managevideo', component: ManageVideoComponent },
       { path: 'query', component: CreateQueryComponent },
       { path: 'chat', component: ChatComponent },
+      { path: 'contactus', component: ContactUsComponent },
+      { path: 'aboutus', component: AboutUsComponent },
     ],
   },
 ];

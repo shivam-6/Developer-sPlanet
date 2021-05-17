@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
@@ -14,10 +15,13 @@ export class SignupComponent implements OnInit {
   avatarImage: any;
   erroMsg: string;
   imgURL: string | ArrayBuffer;
+  
+
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+  
   ) {}
 
   ngOnInit(): void {
@@ -25,6 +29,8 @@ export class SignupComponent implements OnInit {
     document
       .getElementsByTagName('nb-layout-column')[0]
       .classList.add('register');
+
+      
   }
 
   ngOnDestroy() {
@@ -35,12 +41,15 @@ export class SignupComponent implements OnInit {
 
   initSignupForm() {
     this.signupform = this.fb.group({
-      fullname: '',
+      firstname: '',
+      lastname: '', 
       avatar: '',
       email: '',
       password: '',
       confirm: '',
       age: 0,
+      gender:'',
+      mobile: 0,
       created: new Date(),
       isadmin: false,
     });
@@ -95,3 +104,4 @@ export class SignupComponent implements OnInit {
     });
   }
 }
+
