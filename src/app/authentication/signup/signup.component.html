@@ -94,14 +94,10 @@
                                 </div>
                             </div>
 
-
-                            <div class="row">
-                                <input type="file" class="form-control w-50 mx-auto mt-4 "
-                                    (change)="uploadAvatar($event)">
-                                <img [src]="imgURL" alt="" *ngIf="imgURL" class="img-fluid mt-3"
-                                    style="height: 200px; width: 200px; border: 2px solid rgb(20, 17, 17);">
-                            </div>
-
+                            <input type="file" class="form-control w-50 mx-auto mt-4 "
+                            (change)="uploadAvatar($event)">
+                        <img [src]="imgURL" alt="" *ngIf="imgURL" class="img-fluid mt-3"
+                            style="height: 200px; width: 200px; border: 2px solid rgb(20, 17, 17);">
 
 
                         </div>
