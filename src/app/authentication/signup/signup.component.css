@@ -9,6 +9,69 @@ button {
 }
 
 button:hover {
-    background-color: rgb(40, 43, 44);
+    background-color: rgb(236, 6, 198);
     color: white;
 }
+
+input
+{
+    font-size: 1.2rem;
+}
+::placeholder
+{
+    color: black;
+    font-size: 1.5rem;
+  
+    font-weight: bold;
+}
+
+.main{
+    margin: 50px auto;
+    border-radius: 20px;
+    padding: 30px;
+    background-color: #f9ca24;
+   
+}
+
+.label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #141618ea;
+ 
+
+}
+
+.form-control {
+    border-radius: 10px;
+    color: black;
+}
+
+
+/* .img-div {
+    background: url("/assets/123.svg") no-repeat center;
+    background-size: cover;
+} */
+
+.log-in {
+    font-weight: bold;
+    text-align: center;
+}
+
+.button
+{
+    width: 200px;
+    height: 40px;
+    color: black;
+    background-color: #dff9fb;
+}
+
+
+.btn-hover
+{
+    font-weight: normal;
+    color: #080808;
+    cursor: pointer;
+    background-color:inherit;
+    border-color: transparent;
+}
+

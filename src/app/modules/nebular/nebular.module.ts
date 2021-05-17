@@ -12,6 +12,7 @@ import {
   NbFormFieldModule,
   NbAutocompleteModule,
   NbTagModule,
+  NbChatModule,
 } from '@nebular/theme';
 
 @NgModule({
@@ -30,6 +31,7 @@ import {
     NbFormFieldModule,
     NbAutocompleteModule,
     NbTagModule,
+    NbChatModule,
   ],
   imports: [CommonModule],
 })

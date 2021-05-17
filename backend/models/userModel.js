@@ -1,11 +1,14 @@
 const mongoose = require('../connection');
 
 const schema = mongoose.Schema({
-    fullname: String,
+    firstname: String,
+    lastname: String,
     avatar: String,
     email: String,
     password: String,
     age: Number,
+    gender : String,
+    mobile : Number,
     created: Date,
     isadmin: Boolean
 })

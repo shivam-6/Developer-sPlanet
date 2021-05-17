@@ -27,6 +27,7 @@ import { NgsRevealModule } from 'ngx-scrollreveal';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -48,6 +49,11 @@ import { ManageQueriesComponent } from './user/manage-queries/manage-queries.com
 import { QueryDetailsComponent } from './query-details/query-details.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { CreateSolutionComponent } from './user/create-solution/create-solution.component';
+import { ChatComponent } from './chat/chat.component';
+import { ContactUsComponent } from './authentication/contact-us/contact-us.component';
+import { AboutUsComponent } from './authentication/about-us/about-us.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -71,6 +77,9 @@ import { CreateSolutionComponent } from './user/create-solution/create-solution.
     ManageQueriesComponent,
     QueryDetailsComponent,
     CreateSolutionComponent,
+    ChatComponent,
+    ContactUsComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +94,7 @@ import { CreateSolutionComponent } from './user/create-solution/create-solution.
     // NgsRevealModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     MatSelectModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -94,6 +104,8 @@ import { CreateSolutionComponent } from './user/create-solution/create-solution.
     MatSnackBarModule,
     NbToastrModule.forRoot(),
     MarkdownModule.forRoot(),
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
   providers: [
     {

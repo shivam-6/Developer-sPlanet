@@ -21,6 +21,9 @@ import { ListQueriesComponent } from './list-queries/list-queries.component';
 import { ManageQueriesComponent } from './user/manage-queries/manage-queries.component';
 import { QueryDetailsComponent } from './query-details/query-details.component';
 import { CreateSolutionComponent } from './user/create-solution/create-solution.component';
+import { ChatComponent } from './chat/chat.component';
+import { ContactUsComponent } from './authentication/contact-us/contact-us.component';
+import { AboutUsComponent } from './authentication/about-us/about-us.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -62,6 +65,9 @@ const routes: Routes = [
       { path: 'managequery', component: ManageQueriesComponent },
       { path: 'query', component: CreateQueryComponent },
       { path: 'addsolution', component: CreateSolutionComponent },
+      { path: 'chat', component: ChatComponent },
+      { path: 'contactus', component: ContactUsComponent },
+      { path: 'aboutus', component: AboutUsComponent },
     ],
   },
 ];

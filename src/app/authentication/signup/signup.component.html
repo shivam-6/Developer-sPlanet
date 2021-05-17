@@ -1,81 +1,154 @@
-<div class="col-md-11">
+<div class="col-md-7 mx-auto">
     <div class="row">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
-            <nb-card style="margin-top:10%;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
-                <nb-card-body style="padding: 2rem;">
+        <nb-card class="main"
+            style="margin-top:10%;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
+            <nb-card-body style="padding: 1rem;">
+                <div class="row">
                     <form [formGroup]="signupform" (ngSubmit)="submitSignupForm()">
-                        <h3 class="text-center">Signup Here</h3>
-                        <div class="row mt-4">
-                            <div class="col-6">
-                                <button class="w-100" nbButton status="danger"><nb-icon icon="google"></nb-icon>GOOGLE</button>
+
+                        <h1
+                            style="text-align: center; font-weight: bold;font-size:2rem; color:rgb(5, 5, 5); font-family: arsenal;">
+                            Sign-Up </h1>
+                        <hr style="border: 1px solid black;">
+                        <div class="form_field" style="text-align: center;">
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="mt-3 w-100 border-red" appearance="outline">
+                                        <mat-label class="label">First Name</mat-label>
+                                        <input type="text" matInput formControlName="firstname"
+                                            style="color: rgb(0, 0, 0);">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="mt-3 w-100 border-red" appearance="outline">
+                                        <mat-label class="label">Last Name</mat-label>
+                                        <input type="text" matInput formControlName="lastname"
+                                            style="color: rgb(0, 0, 0);">
+                                    </mat-form-field>
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <button class="w-100" nbButton status="primary"><nb-icon icon="facebook"></nb-icon>FACEBOOK</button>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="outline" class="w-100 mt-2">
+                                        <mat-label class="label">Choose a date</mat-label>
+                                        <input matInput [matDatepicker]="picker" formControlName="age">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="w-100 mt-2" appearance="outline">
+                                        <mat-label class="label"> Gender </mat-label>
+                                        <mat-select placeholder="Gender" formControlName="gender"
+                                            style="color: rgb(0, 0, 0); font-size: 1.1rem;">
+                                            <mat-option value="domain">Male</mat-option>
+                                            <mat-option value="exact">Female</mat-option>
+                                            <mat-option value="exact">Transgender</mat-option>
+                                            <mat-option value="exact">Prefer not to say</mat-option>
+                                        </mat-select>
+
+                                    </mat-form-field>
+                                </div>
                             </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="w-100 mt-2" appearance="outline">
+                                        <mat-label class="label">E-mail</mat-label>
+                                        <input type="text" matInput formControlName="email">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <mat-form-field class="w-100 mt-2" appearance="outline">
+                                        <mat-label class="label">Mobile No.</mat-label>
+                                        <input type="tel" matInput maxlength="10" formControlName="mobile">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class=" w-100 mt-2" appearance="outline">
+                                        <mat-label class="label">Password</mat-label>
+                                        <input type="text" matInput formControlName="password">
+                                    </mat-form-field><br>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class=" w-100 mt-2" appearance="outline">
+                                        <mat-label class="label">Confirm</mat-label>
+                                        <input type="text" matInput formControlName="confirm">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <input type="file" class="form-control w-50 mx-auto mt-4 "
+                                    (change)="uploadAvatar($event)">
+                                <img [src]="imgURL" alt="" *ngIf="imgURL" class="img-fluid mt-3"
+                                    style="height: 200px; width: 200px; border: 2px solid rgb(20, 17, 17);">
+                            </div>
+
+
+
                         </div>
-                        <h5 class="text-center mt-3">OR</h5>
-                        <div class="row mt-5">
-                            <div class="col-md-6">
-                                <mat-form-field class="mt-2 w-100" appearance="outline">
-                                    <mat-label>Full Name</mat-label>
-                                    <input type="text" matInput formControlName="fullname">
-                                </mat-form-field>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <mat-form-field class="mt-2 w-100" appearance="outline">
-                                    <mat-label>Email</mat-label>
-                                    <input type="email" matInput formControlName="email">
-                                </mat-form-field>
-                            </div>
-            
-                            
+
+                        <div style="margin: 30px; text-align: center;" class="submit">
+                            <button mat-raised-button class="button"
+                                style="font-weight: bold;font-size: 1.3rem; ">Sign-Up</button>
                         </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <mat-form-field class="mt-2 w-100" appearance="outline">
-                                    <mat-label>Password</mat-label>
-                                    <input type="password" matInput formControlName="password">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6">
-                                <mat-form-field class="mt-2 w-100" appearance="outline">
-                                    <mat-label>Confirm Password</mat-label>
-                                    <input type="password" matInput formControlName="confirm">
-                                </mat-form-field>    
-                            </div>
+
+                        <div style="float:left; width: 44%; color: rgb(17, 17, 17);">
+                            <hr />
                         </div>
-        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <mat-form-field class="mt-2 w-100" appearance="outline">
-                                    <mat-label>Age</mat-label>
-                                    <input type="number" matInput formControlName="age">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="mt-2">Upload Image</label><br>
-                                <input type="file" class="form-control" (change)="uploadAvatar($event)">
-                            </div>
+                        <div style="float:right; width: 44%; color: rgb(14, 13, 13);">
+                            <hr />
                         </div>
-                        <img [src]="imgURL" *ngIf="imgURL" alt="" class="img-fluid mt-4">
-                        
-                        <button class="w-100 mt-5" nbButton status="primary">Submit</button>
+                        <div style="text-align: center; color: #c7ecee ">
+                            <p style="font-size: 1.1rem;font-weight: bold;color: black;margin-top: 35px;">Or</p>
+                        </div>
+
+                        <div style="text-align: center;" class="mb-3 mt-3">
+                            <a class="btn btn-hover btn-floating m-1" href="#!" role="button"><i class="fab fa-google"
+                                    style="font-size: 2.5rem;"></i></a>
+
+                            <a class="btn btn-hover btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook"
+                                    style="font-size: 2.6rem;"></i></a>
+
+                            <a class="btn btn-hover btn-floating m-1" href="#!" role="button"><i
+                                    class="fab fa-instagram" style="font-size: 2.6rem;"></i></a>
+
+                        </div>
+
+
+                        <div class=" row log-in mt-3">
+                            <p style="font-size: 1.3rem; color: rgb(12, 12, 12);">Already Register? <a
+                                    [routerLink]="['/signin']" routerLinkActive="router-link-active"
+                                    style="color: red; font-size: 1.4rem;font-weight: bold;">Log-In
+                                    Here</a></p>
+                        </div>
+
+
+
 
                     </form>
-                    <div class="mt-3">
-                        
-                        <a style="font-family: Roboto;text-decoration: none;" [routerLink]="['/app/signin']">Already Registered? Login Here</a>
-                        <!-- <div class="float-end">
-                            <a style="font-family: Roboto;text-decoration: none;" [routerLink]="['/app/reset']">Forgot Password?</a>
-                        </div> -->
-                    </div>
-                </nb-card-body>
-            </nb-card>
-        </div>
+                </div>
+
+
+            </nb-card-body>
+        </nb-card>
     </div>
 </div>
