@@ -2,20 +2,16 @@
 const mongoose = require('../connection');
 
 const schema = mongoose.Schema({
-  title: String ,
-  desc:String,
-  thumb:String,
-  data : Object ,
-  query :{type:mongoose.Types.ObjectId, ref:'queries' } ,
-  developer : {type:mongoose.Types.ObjectId, ref:'Developers' },
-  upvote: Number,
+  title: String,
+  data: Object,
+  developer: { type: mongoose.Types.ObjectId, ref: 'Developers' },
+  upvotes: Number,
   comments: Array,
-  video : {type:mongoose.Types.ObjectId, ref:'Videos' },
+  video: { type: mongoose.Types.ObjectId, ref: 'Videos' },
   created: Date,
-
 })
 
 
-const model = mongoose.model('Solutions', schema);
+const model = mongoose.model('solutions', schema);
 
 module.exports = model;

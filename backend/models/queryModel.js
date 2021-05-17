@@ -5,7 +5,9 @@ const schema = mongoose.Schema({
   title: String,
   query: String,
   data: Object,
-  developer: { type: mongoose.Types.ObjectId, ref: 'developers' },
+  upvotes: Number,
+  solutions: [{ type: mongoose.Types.ObjectId, ref: 'solutions' }],
+  developer: { type: mongoose.Types.ObjectId, ref: 'Users' },
   created: Date,
 
 })

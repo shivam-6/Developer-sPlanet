@@ -10,10 +10,6 @@ import {
   NbSidebarModule,
   NbMenuModule,
   NbToastrModule,
-
-  
-
- 
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -46,9 +42,12 @@ import { HomeComponent } from './authentication/home/home.component';
 import { ManageVideoComponent } from './user/manage-video/manage-video.component';
 import { ViewVideoComponent } from './authentication/view-video/view-video.component';
 import { ListVideoComponent } from './authentication/list-video/list-video.component';
-import { CreateQueryComponent } from './create-query/create-query.component';
+import { CreateQueryComponent } from './user/create-query/create-query.component';
 import { ListQueriesComponent } from './list-queries/list-queries.component';
-
+import { ManageQueriesComponent } from './user/manage-queries/manage-queries.component';
+import { QueryDetailsComponent } from './query-details/query-details.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { CreateSolutionComponent } from './user/create-solution/create-solution.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +68,9 @@ import { ListQueriesComponent } from './list-queries/list-queries.component';
     ListVideoComponent,
     CreateQueryComponent,
     ListQueriesComponent,
+    ManageQueriesComponent,
+    QueryDetailsComponent,
+    CreateSolutionComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,8 +93,7 @@ import { ListQueriesComponent } from './list-queries/list-queries.component';
     SocialLoginModule,
     MatSnackBarModule,
     NbToastrModule.forRoot(),
-
-   
+    MarkdownModule.forRoot(),
   ],
   providers: [
     {

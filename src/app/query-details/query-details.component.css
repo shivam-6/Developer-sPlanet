@@ -1,0 +1,28 @@
+markdown ::ng-deep p,
+markdown ::ng-deep h1,
+markdown ::ng-deep h2,
+markdown ::ng-deep h3,
+markdown ::ng-deep h4,
+markdown ::ng-deep h5,
+markdown ::ng-deep h6,
+markdown ::ng-deep a,
+markdown ::ng-deep blockquote {
+  font-family: Roboto;
+  line-height: 1.3em;
+  font-size: 1.01em;
+  /* margin-top: 1rem; */
+}
+
+.query-info {
+  padding: 0.5rem;
+  border: 1px solid rgb(51, 102, 255);
+  border-radius: 3px;
+}
+
+.query {
+  padding: 1rem;
+  border: 1px solid rgb(241, 241, 241);
+  box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.205),
+    inset -1px -1px 3px 1px rgba(0, 0, 0, 0.205);
+  border-radius: 3px;
+}

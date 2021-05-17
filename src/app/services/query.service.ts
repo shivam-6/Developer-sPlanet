@@ -15,11 +15,11 @@ export class QueryService {
     return this.http.post(this.url + '/add', data);
   }
 
-  getUserByEmail(email: String) {
-    return this.http.get(this.url + '/getbyemail/' + email);
+  getById(id) {
+    return this.http.get(this.url + '/getbyid/' + id);
   }
 
-  deleteUser(id) {
+  deleteQuery(id) {
     return this.http.delete(this.url + '/delete/' + id);
   }
 

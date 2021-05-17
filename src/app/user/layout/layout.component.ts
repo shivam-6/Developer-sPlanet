@@ -32,6 +32,11 @@ export class LayoutComponent implements OnInit {
       icon: 'person-outline',
       link: 'query',
     },
+    {
+      title: 'Manage Your Query',
+      icon: 'person-outline',
+      link: 'managequery',
+    },
   ];
   constructor(
     private sidebar: NbSidebarService,

@@ -1,13 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import * as SimpleMDE from 'simplemde';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 import {
   NbTagComponent,
   NbTagInputDirective,
   NbToastrService,
 } from '@nebular/theme';
-import { QueryService } from '../services/query.service';
+import { QueryService } from '../../services/query.service';
 
 @Component({
   selector: 'app-create-query',
@@ -50,6 +50,8 @@ export class CreateQueryComponent implements OnInit {
       developer: this.userService.currentUser._id,
       created: new Date(),
       data: {},
+      upvotes: 0,
+      solutions: Array,
     });
   }
 

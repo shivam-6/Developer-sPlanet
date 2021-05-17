@@ -1,43 +1,58 @@
-<div class="container">
-    <nb-card *ngFor="let query of queryList" [routerLink]="['/querydetails', query._id]" 
+<div class="col-md-10 mx-auto">
+    <nb-card *ngIf="!loading"
         style="border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
         <nb-card-body style="padding: 2rem;">
-            <h3>{{query.title}}</h3>
+            <h3>{{queryData.title}}</h3>
             <nb-tag-list (tagRemove)="onTopicRemove($event)">
-                <nb-tag size="small" appearance="outline" status="primary" *ngFor="let topic of query.data.topics"
+                <nb-tag size="small" appearance="outline" status="primary" *ngFor="let topic of queryData.data.topics"
                     [text]="topic"></nb-tag>
             </nb-tag-list>
             <br>
             <div class="mt-4">
-                <p class="text-muted" style="display: inline;">Posted on : {{query.created | date}}</p>
+                <p class="text-muted" style="display: inline;">Posted on : {{queryData.created | date}}</p>
                 <div class="float-end">
-                    <p class="text-muted" style="display: inline;">By : {{query.developer.fullname}}</p>
+                    <p class="text-muted" style="display: inline;">By : {{queryData.developer.fullname}}</p>
                 </div>
             </div>
             <hr>
             <div class="row mt-2">
                 <div class="col-2">
                     <div class="query-info">
-                        <h3 class="text-center">{{query.upvotes}}</h3>
+                        <h3 class="text-center">{{queryData.upvotes}}</h3>
                         <hr>
                         <p class="text-center">Upvotes</p>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="query-info">
-                        <h3 class="text-center">{{query.upvotes}}</h3>
+                        <h3 class="text-center">{{queryData.upvotes}}</h3>
                         <hr>
                         <p class="text-center">Upvotes</p>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="query-info">
-                        <h3 class="text-center">{{query.solutions.length}}</h3>
+                        <h3 class="text-center">{{queryData.solutions.length}}</h3>
                         <hr>
                         <p class="text-center">Solutions</p>
                     </div>
                 </div>
             </div>
+
+            <div class="mt-5 query">
+                <markdown [data]="queryData.query"></markdown>
+            </div>
+
+            <button class="mt-4" nbButton hero status="success" (click)="addSolution()">Provide Solution</button>
+
+            <h4 class="mt-5">Responses</h4>
+            <hr>
+            <nb-card class="mt-3" *ngFor="let solution of queryData.solutions">
+                <nb-card-body>
+
+                </nb-card-body>
+            </nb-card>
+
         </nb-card-body>
     </nb-card>
 </div>

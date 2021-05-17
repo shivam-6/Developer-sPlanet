@@ -16,8 +16,11 @@ import { ManageVideoComponent } from './user/manage-video/manage-video.component
 import { HomeComponent } from './authentication/home/home.component';
 import { ListVideoComponent } from './authentication/list-video/list-video.component';
 import { ViewVideoComponent } from './authentication/view-video/view-video.component';
-import { CreateQueryComponent } from './create-query/create-query.component';
+import { CreateQueryComponent } from './user/create-query/create-query.component';
 import { ListQueriesComponent } from './list-queries/list-queries.component';
+import { ManageQueriesComponent } from './user/manage-queries/manage-queries.component';
+import { QueryDetailsComponent } from './query-details/query-details.component';
+import { CreateSolutionComponent } from './user/create-solution/create-solution.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -32,6 +35,7 @@ const routes: Routes = [
       { path: 'view/:id', component: ViewVideoComponent },
       { path: 'listvideo', component: ListVideoComponent },
       { path: 'listquery', component: ListQueriesComponent },
+      { path: 'querydetails/:id', component: QueryDetailsComponent },
     ],
   },
 
@@ -55,7 +59,9 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'addvideo', component: AddVideoComponent },
       { path: 'managevideo', component: ManageVideoComponent },
+      { path: 'managequery', component: ManageQueriesComponent },
       { path: 'query', component: CreateQueryComponent },
+      { path: 'addsolution', component: CreateSolutionComponent },
     ],
   },
 ];

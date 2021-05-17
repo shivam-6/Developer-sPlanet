@@ -1,0 +1,43 @@
+<div class="col-md-11 mx-auto mt-5">
+
+    <nb-card accent="primary">
+        <nb-card-header>
+            <p class="h4">Manage Your Queries</p>
+        </nb-card-header>
+        <nb-card-body>
+            <nb-accordion *ngIf="queryList">
+                <nb-accordion-item *ngFor="let query of queryList">
+                  <nb-accordion-item-header>
+                    {{query.title}}
+                  </nb-accordion-item-header>
+                  <nb-accordion-item-body>
+                    {{query.desc}}
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-4">
+                                <!-- <p>Views : </p> -->
+                                <p>Upvotes : </p>
+                                <p>Responses : </p>
+                            </div>
+                            <div class="col-8">
+                                <!-- <p>{{query.views}}</p> -->
+                                <p>{{query.upvotes}}</p>
+                                <p>{{query.solutions.length}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col text-center">
+                            <button class="col-10" nbButton (click)="updateQuery(query._id)">Edit</button>
+                        </div>
+                        
+                        <div class="col text-center">
+                            <button class="col-10" nbButton hero (click)="deleteQuery(query._id)" status  ="danger">Delete</button>
+                        </div>
+                    </div>
+                  </nb-accordion-item-body>
+                </nb-accordion-item>
+            </nb-accordion>
+        </nb-card-body>
+    </nb-card>
+</div>

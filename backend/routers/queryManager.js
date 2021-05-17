@@ -15,7 +15,7 @@ router.post('/add', (req, res) => {
 
 router.get('/getall', (req, res) => {
 
-    Model.find({})
+    Model.find({}).populate('developer')
         .then(data => {
             console.log('user data fetched ');
             res.status(200).json(data);
@@ -39,6 +39,19 @@ router.get('/getbydeveloper/:developer', (req, res) => {
         })
 })
 
+router.delete('/delete/:id', (req, res) => {
+
+    Model.findByIdAndDelete(req.params.id)
+        .then(data => {
+            console.log('query deleted');
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
 router.get('/getbyCommunity/:community', (req, res) => {
 
     Model.find({ community: req.params.community })
@@ -54,9 +67,9 @@ router.get('/getbyCommunity/:community', (req, res) => {
 
 router.get('/getbyid/:id', (req, res) => {
 
-    Model.findById(req.params.id)
+    Model.findById(req.params.id).populate('developer')
         .then(data => {
-            console.log('user fetched by id');
+            console.log('query fetched by id');
             res.status(200).json(data);
         })
         .catch(err => {
