@@ -6,6 +6,7 @@ const schema = mongoose.Schema({
   desc: String,
   data: Object,
   developer: { type: mongoose.Types.ObjectId, ref: 'Developers' },
+  comments: [{ type: mongoose.Types.ObjectId, ref: 'comments' }],
   created: String,
   category: String,
   thumb: String,

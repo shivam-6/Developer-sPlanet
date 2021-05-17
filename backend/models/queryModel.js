@@ -8,7 +8,9 @@ const schema = mongoose.Schema({
   upvotes: Number,
   solutions: [{ type: mongoose.Types.ObjectId, ref: 'solutions' }],
   developer: { type: mongoose.Types.ObjectId, ref: 'Users' },
+  comments: [{ type: mongoose.Types.ObjectId, ref: 'comments' }],
   created: Date,
+  
 
 })
 
