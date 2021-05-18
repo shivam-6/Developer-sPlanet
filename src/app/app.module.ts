@@ -54,6 +54,7 @@ import { ContactUsComponent } from './authentication/contact-us/contact-us.compo
 import { AboutUsComponent } from './authentication/about-us/about-us.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AddSolutionComponent } from './add-solution/add-solution.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ChatComponent,
     ContactUsComponent,
     AboutUsComponent,
+    AddSolutionComponent,
   ],
   imports: [
     BrowserModule,
