@@ -45,7 +45,7 @@ export class AddVideoComponent implements OnInit {
       category: '',
       views: 0,
       upvotes: 0,
-      commens: [],
+      comments: Array,
     });
   }
 
