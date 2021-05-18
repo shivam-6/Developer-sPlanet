@@ -1,12 +1,71 @@
 button {
-    width: 150px;
-    height: 40px;
-    color: rgb(14, 13, 13);
-    background-color: rgb(199, 194, 194);
+    border: 1px solid rgb(134, 133, 133);
     border-radius: 5px;
-    box-shadow: 5px blue;
+    background-color: rgb(126, 151, 172);
+    width: 200px;
+    height: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: rgb(236, 6, 198);
+    color: white;
+}
+
+input
+{
+    font-size: 1.2rem;
 }
 
 .card {
     background-color: rgba(108, 232, 236, 0.151);
 }
+
+.label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #141618ea;
+ 
+
+}
+
+
+.button
+{
+    width: 200px;
+    height: 40px;
+    color: black;
+    background-color: #dff9fb;
+}
+
+
+.btn-hover
+{
+    font-weight: normal;
+    color: #080808;
+    cursor: pointer;
+    background-color:inherit;
+    border-color: transparent;
+}
+
+.fa-google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .fa-instagram {
+    color: transparent;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  .fa-facebook {
+    color: blue;
+    background-color: #fff;
+  }

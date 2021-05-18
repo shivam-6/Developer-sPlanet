@@ -5,7 +5,7 @@ const schema = mongoose.Schema({
   title: String,
   desc: String,
   data: Object,
-  developer: { type: mongoose.Types.ObjectId, ref: 'Developers' },
+  developer: { type: mongoose.Types.ObjectId, ref: 'users' },
   comments: [{ type: mongoose.Types.ObjectId, ref: 'comments' }],
   created: String,
   category: String,

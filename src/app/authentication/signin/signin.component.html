@@ -1,47 +1,68 @@
-<div class="col-md-10">
+<div class="col-md-3 mx-auto">
     <div class="row">
-        <div class="col-md-8">
-
-        </div>
-        <div class="col-md-4">
-            <nb-card style="margin-top:25%;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
-                <nb-card-body style="padding: 2rem;">
-                    <h3 class="text-center">Signin Here</h3>
-                    <div class="row mt-4">
-                            <div class="col-6">
-                                <button class="w-100" nbButton status="danger" (click)="loginWithGoogle()"><nb-icon icon="google"></nb-icon>GOOGLE</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="w-100" nbButton status="primary"><nb-icon icon="facebook"></nb-icon>FACEBOOK</button>
-                            </div>
-                        </div>
-                    <form [formGroup]="signinform" (ngSubmit)="submitSigninForm()">
-                        
-                        
-                        <h5 class="text-center mt-3">OR</h5>
-                        <mat-form-field class="mt-3 w-100" appearance="outline">
-                            <mat-label>Email</mat-label>
-                            <input type="text" matInput formControlName="email" autofocus>
-                        </mat-form-field>
-        
-        
-                        <mat-form-field class="mt-2 w-100" appearance="outline">
-                            <mat-label>Password</mat-label>
-                            <input type="password" matInput formControlName="password">
-                        </mat-form-field>
-        
-                        <button class="w-100 mt-5" nbButton status="primary">Submit</button>
-                    </form>
-
-                    <div class="mt-3">
-                        
-                        <a style="font-family: Roboto;text-decoration: none;" [routerLink]="['/app/signup']">Not Registered Yet?</a>
-                        <div class="float-end">
-                            <a style="font-family: Roboto;text-decoration: none;" [routerLink]="['/app/reset']">Forgot Password?</a>
-                        </div>
+        <nb-card style="margin-top:5%;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);background-color:  #ecf0f1;">
+            <nb-card-body style="padding: 2rem;">
+                <h3 class="text-center" style="font-family: arsenal;">Sign-In</h3>
+                <hr>
+              
+                <form [formGroup]="signinform" (ngSubmit)="submitSigninForm()">
+                    <mat-form-field class="mt-3 w-100" appearance="outline">
+                        <mat-label class="label">Email</mat-label>
+                        <input type="text" matInput formControlName="email" autofocus>
+                    </mat-form-field>
+    
+    
+                    <mat-form-field class="mt-2 w-100" appearance="outline">
+                        <mat-label class="label">Password</mat-label>
+                        <input type="password" matInput formControlName="password">
+                    </mat-form-field>
+    
+                    <div style="margin: 30px; text-align: center;" class="submit">
+                        <button mat-raised-button class="button"
+                            style="font-weight: bold;font-size: 1.3rem; ">Sign-in</button>
                     </div>
-                </nb-card-body>
-            </nb-card>
-        </div>
+              
+                  
+                    <div style="float:left; width: 44%; color: rgb(17, 17, 17);">
+                        <hr />
+                    </div>
+                    <div style="float:right; width: 44%; color: rgb(14, 13, 13);">
+                        <hr />
+                    </div>
+                    <div style="text-align: center; color: #c7ecee ">
+                        <p style="font-size: 1.1rem;font-weight: bold;color: black;margin-top: 35px;">Or</p>
+                    </div>
+
+                    <div style="text-align: center;" class="mb-3 mt-3">
+                        <a class="btn btn-hover btn-floating m-1" href="#!" role="button" (click)="loginWithGoogle()"><i class="fab fa-google"
+                                style="font-size: 2.5rem;"></i></a>
+
+                        <a class="btn btn-hover btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook"
+                                style="font-size: 2.6rem;"></i></a>
+
+                        <a class="btn btn-hover btn-floating m-1" href="#!" role="button"><i
+                                class="fab fa-instagram" style="font-size: 2.6rem;"></i></a>
+
+                    </div>
+
+
+                    <div class=" row mt-3">
+                        <p style="font-size: 1.3rem; color: rgba(0, 0, 0, 0.87);font-family: roboto;">Not Yet Register? <a
+                                [routerLink]="['/signup']" routerLinkActive="router-link-active"
+                                style="color: black; font-size: 1.4rem;font-weight: bold;">Register
+                                Here</a></p>
+                    </div>
+              
+                    <div class=" row  mt-2 mx-auto text-center">
+                               <a
+                                [routerLink]="['/signup']" routerLinkActive="router-link-active"
+                                style="color: rgb(21, 73, 214); font-size: 1.4rem;font-weight: bold;text-decoration: aqua;">Forget Password 
+                                </a>
+                    </div>
+                </form>
+    
+            
+            </nb-card-body>
+        </nb-card>
     </div>
 </div>
