@@ -3,24 +3,27 @@
   top: 0;
 }
 
-nb-icon {
-  font-size: 2rem;
+h1
+{
+  font-family: Roboto;
+  font-weight: 400;
+  color: rgb(41, 39, 39);
 }
 
-.icon-data {
-  font-size: 3rem;
+body
+{
+  background-color:#fff;
 }
 
-.icon-container {
-  border-radius: 5px;
-  background-color: rgb(0, 124, 226);
-  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.226);
-  /* height: 6rem; */
-  padding: 0.5rem;
-}
-
-.figure {
+i
+{
   font-size: 1.5rem;
-  font-weight: bolder;
-  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+h3
+{
+  font-family: Roboto;
+  font-weight: 300;
+  color: rgb(41, 39, 39);
 }

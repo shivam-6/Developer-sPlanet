@@ -1,63 +1,52 @@
-<div class="container">
-    <div class="row" style="height: 70vh;" *ngIf="videoData">
-        <div class="col-md">
-            <nb-card>
-                <nb-card-body>
-                    <div class="row">
-                        <div class="col-2">
-                            <div class="">
-                                <nb-icon icon="eye-outline" ></nb-icon>
-                            </div>
-                        </div>
-                        <div class="col-10">
-                            <div class="col-6 mx-auto">
-                                <p class="figure">{{videoData.views}}</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <div class="">
-                                <nb-icon icon="arrow-up-outline" ></nb-icon>
-                            </div>
-                        </div>
-                        <div class="col-10">
-                            <div class="col-6 mx-auto">
-                                <p class="figure">{{videoData.upvotes}}</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <div class="">
-                                <nb-icon icon="message-square-outline" ></nb-icon>
-                            </div>
-                        </div>
-                        <div class="col-10">
-                            <div class="col-6 mx-auto">
-                                <p class="figure">{{videoData.comments}}</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </nb-card-body>
-            </nb-card>
+<div class="row" *ngIf="videoData">
+
+    <div class="col-md-8" style="background-color: white;">
+        <video class="img-fluid" [src]="url+videoData.file" #video (loadedmetadata)="onMetadata($event, video)" controls style="margin-top: 10px;"></video> <hr>
+        <div class="row mt-2" ><h1  style="margin-left: 10px;">{{videoData.title}}</h1> <p style="margin-top: -17px;margin-left: 11px;">{{videoData.views}} &nbsp; Views</p></div>
+        <div class="row mt-4" style="margin-left: 7px;">
+            <div class="col-3">
+               <i class="far fa-thumbs-up" aria-hidden="true"> &nbsp; <p style="margin-top: 12px;">{{videoData.upvotes}}</p> </i>
+            </div>
+         
+            <div class="col-3">
+                <i class="far fa-calendar" aria-hidden="true" > &nbsp; <p style="margin-top: 10px; margin-left: -31px;">{{videoData.created | date}}</p> </i>
+            </div>
+           
+            <div class="col-3">
+                <i class="fas fa-share" aria-hidden="true"  > &nbsp; <p style="margin-top: 10px;margin-left: -8px;">Share</p> </i>
+            </div>
+           
+            <div class="col-3">
+                <i class="far fa-flag" aria-hidden="true"  > &nbsp; <p style="margin-top: 10px; margin-left: -9px;">Report</p> </i>
+            </div>
         </div>
-        <div class="col-md-6">
-            <video class="img-fluid" [src]="url+videoData.file" #video (loadedmetadata)="onMetadata($event, video)" controls></video>
-            
+         
+        <hr>
+        <div class="row">
+           <div class="col-6">  <h3>{{videoData.developer.fullname}}</h3></div>
+           <div class="col-6" style="text-align: right;"><h5 style="margin-top: 10px;"> <i class="fa fa-user-circle" aria-hidden="true"></i> Follow </h5></div>
         </div>
-     
-        <div class="col-md-4">
-            <nb-card>
-                <nb-card-body>
-                    <h2>Recommendations</h2>
-                    lorem1000
-                </nb-card-body>
-            </nb-card>
-        </div>
+        <hr>
+       <div class="row">
+          <div class="col-5"><h3>Comments ::&nbsp;{{videoData.comments.length}}</h3></div>
+       </div>
+ 
+ <div class="row">
     
+    <nb-card>
+        <nb-card-body>
+            <p>{{videoData.text}}</p>
+          
+        </nb-card-body>
+    </nb-card>
+ </div>
+    </div>
+   
+    <div class="col-md-4" style="background-color: white;">
+        <nb-card>
+            <nb-card-body>
+                <h1>Recommondations</h1> <hr>
+            </nb-card-body>
+        </nb-card>
     </div>
 </div>
