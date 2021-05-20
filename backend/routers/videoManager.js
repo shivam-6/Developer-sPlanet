@@ -68,7 +68,7 @@ router.get('/getbydeveloper/:developer', (req, res) => {
 
 router.get('/getall', (req, res) => {
 
-    Model.find({})
+    Model.find({}).populate('developer')
         .then(data => {
             console.log('user data fetched ');
             res.status(200).json(data);

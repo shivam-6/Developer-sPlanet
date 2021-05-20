@@ -5,11 +5,12 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: white;
 }
-
+/* 
 .login {
   background: url("assets/login_back.png") no-repeat center;
-}
+} */
 
 /* .register {
   background: url("assets/register_back.png") no-repeat center;

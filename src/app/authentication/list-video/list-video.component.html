@@ -1,116 +1,93 @@
 <div class="container" *ngIf="!loading">
-    <nb-card *ngFor="let video of videoList" style="border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
+    <nb-card *ngFor="let video of videoList"
+        style="border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
         <nb-card-body style="padding: 2rem;">
             <div class="row">
-                <div class="col-md-4" style="border: 1px solid rgb(247, 0, 0);">
-                    <img [src]="url+video.thumb" alt="" class="img-fluid">
+                <div class="col-md-2" style="border: 1px solid grey;">
+                    <img [src]="url+video.thumb" alt="" class="img-fluid" height="200px" width="200px">
                 </div>
-             
-                <div class="col-md-8" style="border: 1px solid rgb(236, 0, 0);">
-                    <h2 style="color: black;font-family: arsenal;border-bottom: 1px solid rgb(11, 26, 235);">
-                        <a style="text-decoration: none; color: black;" [routerLink]="['/view', video._id]" routerLinkActive="router-link-active" >{{video.title}}</a>
 
+                <div class="col-md-10">
+                    <h2 style="color: black;border-bottom: 1px solid rgb(11, 26, 235);">
+                        <a style="text-decoration: none; color: black;" [routerLink]="['/view', video._id]"
+                            routerLinkActive="router-link-active">{{video.title}}</a>
                     </h2>
 
-                
-                     
-                    <nb-card>
-                        <nb-card-body >
-                            <div class="row " >
-                                <div class="col-2">
-                                    <div class="">
-                                        <i class="fas fa-eye" style="font-size: 3.9rem;color: #18dcff;"></i>
-                                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="fas fa-user" style="color: #e67e22;"></i>
                                 </div>
-                                <div class="col-10">
-                                    <div class="col-6 mx-auto text-center">
-                                        <p class="figure" style="font-size: 2.5rem; margin-top: 25px;">{{video.views}}</p>
-                                    </div>
-                                    
+                                <div class="col-11">
+                                    <p>{{video.developer.fullname}}</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row mt-4" >
-                                <div class="col-2">
-                                    <div class="">
-                                        <i class="fas fa-thumbs-up"  style="font-size: 3.9rem; color: #fff200;"></i>
-                                    </div>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="fas fa-calendar-week" style="color: navy;"></i>
                                 </div>
-                                <div class="col-10">
-                                    <div class="col-6 mx-auto text-center">
-                                        <p class="figure" style="font-size: 2.5rem; margin-top: 25px; ">{{video.upvotes}}</p>
-                                    </div>
-                                    
+                                <div class="col-11">
+                                    <p>{{video.created | date}}</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="row mt-4">
-                                <div class="col-2">
-                                    <div class="">
-                                        <i class="fas fa-comments" style="font-size: 3.9rem;color: #706fd3;"></i>
-                                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="fas fa-eye" style="color: #3498db;"></i>
                                 </div>
-                                <div class="col-10">
-                                    <div class="col-6 mx-auto text-center">
-                                        <p class="figure" style="font-size: 1.2rem; ">{{video.comments.lengths}}</p>
-                                    </div>
-                                    
+                                <div class="col-11">
+                                    <p>{{video.views}}</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row mt-4">
-                                <div class="col-2">
-                                    <div class="">
-                                        <i class="fas fa-user"style="font-size: 3.9rem;color: #ffb142;"></i>
-                                    </div>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="fas fa-comment" style="color: olive;"></i>
                                 </div>
-                                <div class="col-10">
-                                    <div class="col-6 mx-auto text-center">
-                                        <p class="figure" style="font-size: 1.6rem; margin-top: 23px;">{{video.developer}}</p>
-                                    </div>
-                                    
+                                <div class="col-11">
+                                    <p>{{video.comments.length}}</p>
                                 </div>
                             </div>
-                          
+                        </div>
+                    </div>
 
-                            <div class="row mt-4">
-                                <div class="col-2">
-                                    <div class="">
-                                        <i class="fas fa-calendar-week" style="font-size: 3.9rem;color: #fc5c65;"></i>
-                                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="fas fa-thumbs-up" style="color: #3498db;"></i>
                                 </div>
-                                <div class="col-10">
-                                    <div class="col-6 mx-auto text-center">
-                                        <p class="figure" style="font-size: 1.6rem; margin-top: 20px; ">{{video.created|date}}</p>
-                                    </div>
-                                    
+                                <div class="col-11">
+                                    <p>{{video.upvotes}}</p>
                                 </div>
                             </div>
-                            
-                        </nb-card-body>
-                    </nb-card>
+                        </div>
 
+                        <div class="col-md-5">
+                            <div class="row mt-2">
+                                <!-- <i class="fa fa-angle-double-right" style="font-size: 2.5rem;" [routerLink]="['/view', video._id]" routerLinkActive="router-link-active"  >&nbsp;Details</i> -->
 
-                    <nb-card>
-                        <nb-card-body >
-                           
-                            <div class="row ">
-                                <div class="col-2">
-                                    <div class="">
-                                        <i class="fas fa-angle-double-right" style="font-size: 3.9rem;color:#130f40;" [routerLink]="['/view', video._id]"
-                                            routerLinkActive="router-link-active"></i>
-                                    </div>
-                                </div>
-                                <div class="col-10">
-                                    <div class="col-6 mx-auto">
-                                      
-                                    </div>
-                                    
-                                </div>
                             </div>
-                            
-                        </nb-card-body>
-                    </nb-card>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <button mat-raised-button class="button mx-auto"
+                            style="font-weight: bold;font-size: 1.3rem; text-align: center;"
+                            [routerLink]="['/view', video._id]" routerLinkActive="router-link-active">Details <i
+                                class="fa fa-angle-double-right"></i> </button>
+                    </div>
 
 
                 </div>
