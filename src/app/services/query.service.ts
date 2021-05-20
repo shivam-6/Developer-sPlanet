@@ -19,6 +19,10 @@ export class QueryService {
     return this.http.get(this.url + '/getbyid/' + id);
   }
 
+  getByDeveloper(id) {
+    return this.http.get(this.url + '/getbydev/' + id);
+  }
+
   deleteQuery(id) {
     return this.http.delete(this.url + '/delete/' + id);
   }

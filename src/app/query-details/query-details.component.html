@@ -25,9 +25,9 @@
                 </div>
                 <div class="col-2">
                     <div class="query-info">
-                        <h3 class="text-center">{{queryData.upvotes}}</h3>
+                        <h3 class="text-center">{{queryData.comments.length}}</h3>
                         <hr>
-                        <p class="text-center">Upvotes</p>
+                        <p class="text-center">Comments</p>
                     </div>
                 </div>
                 <div class="col-2">
@@ -44,6 +44,26 @@
             </div>
 
             <button class="mt-4" nbButton hero status="success" (click)="addSolution()">Provide Solution</button>
+
+            <h4 class="mt-5">Comments</h4>
+            <hr>
+            <div class="comments-body" *ngFor="let comment of queryData.comments">
+                <div class="row">
+                    <div class="col-10">
+                        <p>{{comment.text}}</p>
+                    </div>
+                    <div class="col-2">
+
+                    </div>
+                </div>
+            </div>
+            <div class="add-comment">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Add Comment</mat-label>
+                    <textarea matInput #comment></textarea>
+                </mat-form-field>
+                <button class="mt-1" nbButton (click)="addComment(comment.value)">Submit</button>
+            </div>
 
             <h4 class="mt-5">Responses</h4>
             <hr>

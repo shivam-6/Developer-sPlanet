@@ -27,6 +27,7 @@ import { AboutUsComponent } from './authentication/about-us/about-us.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   {
     path: '',
     component: AppLayoutComponent,
@@ -34,7 +35,6 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
       { path: 'reset', component: ResetPasswordComponent },
-      { path: 'home', component: HomeComponent },
       { path: 'view/:id', component: ViewVideoComponent },
       { path: 'listvideo', component: ListVideoComponent },
       { path: 'listquery', component: ListQueriesComponent },

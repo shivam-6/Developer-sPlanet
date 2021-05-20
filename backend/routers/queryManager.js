@@ -15,7 +15,7 @@ router.post('/add', (req, res) => {
 
 router.get('/getall', (req, res) => {
 
-    Model.find({}).populate('developer')
+    Model.find({}).populate('developer').populate('comments')
         .then(data => {
             console.log('all data fetched');
             res.status(200).json(data);
@@ -26,7 +26,7 @@ router.get('/getall', (req, res) => {
         })
 })
 
-router.get('/getbydeveloper/:developer', (req, res) => {
+router.get('/getbydev/:developer', (req, res) => {
 
     Model.find({ developer: req.params.developer })
         .then(data => {

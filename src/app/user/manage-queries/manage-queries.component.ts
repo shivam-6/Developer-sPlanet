@@ -28,11 +28,13 @@ export class ManageQueriesComponent implements OnInit {
   }
 
   fetchQueries() {
-    this.queryService.getAll().subscribe((res) => {
-      this.queryList = res;
-      this.loadingQueries = false;
-      console.log(this.queryList);
-    });
+    this.queryService
+      .getByDeveloper(this.userService.currentUser._id)
+      .subscribe((res) => {
+        this.queryList = res;
+        this.loadingQueries = false;
+        console.log(this.queryList);
+      });
   }
 
   deleteQuery(id) {

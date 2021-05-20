@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommentService } from '../services/comment.service';
 import { QueryService } from '../services/query.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-query-details',
@@ -13,7 +16,10 @@ export class QueryDetailsComponent implements OnInit {
   constructor(
     private actRoute: ActivatedRoute,
     private queryService: QueryService,
-    private router: Router
+    private router: Router,
+    private commentService: CommentService,
+    private fb: FormBuilder,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -28,5 +34,16 @@ export class QueryDetailsComponent implements OnInit {
   addSolution() {
     sessionStorage.setItem('query_to_answer', JSON.stringify(this.queryData));
     this.router.navigate(['/user/addsolution']);
+  }
+
+  addComment(comment) {
+    let formdata = this.fb.group({
+      text: comment,
+      user: this.userService.currentUser._id,
+    }).value;
+
+    this.commentService.addComment(formdata).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

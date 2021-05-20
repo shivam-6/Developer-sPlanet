@@ -52,6 +52,7 @@ export class CreateQueryComponent implements OnInit {
       data: {},
       upvotes: 0,
       solutions: Array,
+      comments: Array,
     });
   }
 
