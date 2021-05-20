@@ -33,7 +33,7 @@ export class QueryDetailsComponent implements OnInit {
 
   addSolution() {
     sessionStorage.setItem('query_to_answer', JSON.stringify(this.queryData));
-    this.router.navigate(['/user/addsolution']);
+    this.router.navigate(['/addsolution']);
   }
 
   addComment(comment) {

@@ -13,15 +13,20 @@ export class ViewVideoComponent implements OnInit {
   playtime = 0;
   countOn = 10;
   url = app_config.api_url + '/';
+ 
+ 
+
   constructor(
     private actRoute: ActivatedRoute,
     private videoService: VideoService
   ) {}
 
   ngOnInit(): void {
+  
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.videoService.getVideoById(id).subscribe((data) => {
       this.videoData = data;
+      
     });
   }
 
@@ -40,4 +45,7 @@ export class ViewVideoComponent implements OnInit {
       console.log('paused');
     };
   }
+
+
 }
+
