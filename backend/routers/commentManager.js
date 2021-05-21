@@ -1,4 +1,4 @@
-const Model = require('../models/queryModel');
+const Model = require('../models/commentModel');
 const router = require('express').Router();
 
 router.post('/add', (req, res) => {

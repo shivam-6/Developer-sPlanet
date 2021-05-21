@@ -25,3 +25,10 @@ button:hover {
   background-color: #4b4b4b;
   color: #ff9f1a;
 }
+
+.card-img {
+  height: 15rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
