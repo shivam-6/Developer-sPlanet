@@ -1,7 +1,7 @@
-<div class="row" *ngIf="videoData">
+<div class="row" *ngIf="videoData" style="margin-top: -30px;">
 
     <div class="col-md-8" style="background-color: white;">
-        <video class="img-fluid" [src]="url+videoData.file" #video (loadedmetadata)="onMetadata($event, video)" controls style="margin-top: 10px;"></video> <hr>
+        <video class="img-fluid" [src]="url+videoData.file" #video (loadedmetadata)="onMetadata($event, video)" controls style="margin-top: 10px; border: solid 1px grey;"></video> <hr>
         <div class="row mt-2" ><h1  style="margin-left: 10px;">{{videoData.title}}</h1> <p style="margin-top: -17px;margin-left: 11px;">{{videoData.views}} &nbsp; Views</p></div>
         <div class="row mt-4" style="margin-left: 7px;">
             <div class="col-3">
@@ -23,12 +23,12 @@
          
         <hr>
         <div class="row">
-           <div class="col-6">  <h3>{{videoData.developer.fullname}}</h3></div>
+           <div class="col-6"> <h3>{{videoData.developer.fullname}}</h3></div>
            <div class="col-6" style="text-align: right;"><h5 style="margin-top: 10px;"> <i class="fa fa-user-circle" aria-hidden="true"></i> Follow </h5></div>
         </div>
         <hr>
        <div class="row">
-          <div class="col-5"><h3>Comments ::&nbsp;{{videoData.comments.length}}</h3></div>
+        <h3>Comments ::&nbsp;{{videoData.comments.length}}</h3>
        </div>
  
  <div class="row">
@@ -42,8 +42,8 @@
  </div>
     </div>
    
-    <div class="col-md-4" style="background-color: white;">
-        <nb-card>
+    <div class="col-md-4" style="background-color: white; ">
+        <nb-card style="margin-top: 15px;">
             <nb-card-body>
                 <h1>Recommondations</h1> <hr>
             </nb-card-body>
