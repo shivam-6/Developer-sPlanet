@@ -55,6 +55,7 @@ import { AboutUsComponent } from './authentication/about-us/about-us.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AddSolutionComponent } from './add-solution/add-solution.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { AddSolutionComponent } from './add-solution/add-solution.component';
     ContactUsComponent,
     AboutUsComponent,
     AddSolutionComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

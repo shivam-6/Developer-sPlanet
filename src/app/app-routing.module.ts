@@ -70,6 +70,7 @@ const routes: Routes = [
       { path: 'contactus', component: ContactUsComponent },
       { path: 'aboutus', component: AboutUsComponent },
       { path: 'addsolution', component: AddSolutionComponent },
+      
     ],
   },
 ];
