@@ -79,7 +79,7 @@ router.put('/update/:id', (req, res) => {
         })
 })
 
-router.put('/updatecomment/:id', (req, res) => {
+router.put('/pushupdate/:id', (req, res) => {
 
     Model.findByIdAndUpdate(req.params.id, { $push: req.body })
         .then(data => {

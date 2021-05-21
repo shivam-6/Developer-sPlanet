@@ -32,10 +32,11 @@ export class ViewVideoComponent implements OnInit {
     this.videoService.getVideoById(id).subscribe((data) => {
       this.videoData = data;
       console.log(data);
+      if (this.userService.loggedin) {
+        this.addView();
+      }
     });
   }
-
-  addView() {}
 
   addComment(text) {
     let formdata = {
@@ -52,6 +53,28 @@ export class ViewVideoComponent implements OnInit {
           this.fetchVideo();
         });
     });
+  }
+
+  addLike() {
+    if (this.userService.loggedin) {
+      if (!this.videoData.upvotes.includes(this.userService.currentUser._id)) {
+        this.videoService
+          .updateUpvotes(this.videoData._id, this.userService.currentUser._id)
+          .subscribe((res) => {
+            this.fetchVideo();
+          });
+      }
+    }
+  }
+
+  addView() {
+    if (!this.videoData.views.includes(this.userService.currentUser._id)) {
+      this.videoService
+        .updateViews(this.videoData._id, this.userService.currentUser._id)
+        .subscribe((res) => {
+          this.fetchVideo();
+        });
+    }
   }
 
   onMetadata(e, video) {

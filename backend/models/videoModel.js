@@ -11,8 +11,8 @@ const schema = mongoose.Schema({
   category: String,
   thumb: String,
   file: String,
-  upvotes: Number,
-  views: Number,
+  upvotes: Array,
+  views: Array,
 
 })
 
