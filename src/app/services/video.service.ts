@@ -29,4 +29,8 @@ export class VideoService {
   update(id: String, data: Object) {
     return this.http.put(this.url + '/update/' + id, data);
   }
+
+  updateComment(id, data) {
+    return this.http.put(this.url + '/updatecomment/' + id, data);
+  }
 }

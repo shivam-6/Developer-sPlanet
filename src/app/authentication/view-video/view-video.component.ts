@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommentService } from 'src/app/services/comment.service';
+import { UserService } from 'src/app/services/user.service';
 import { VideoService } from 'src/app/services/video.service';
 import { app_config } from 'src/config';
 
@@ -13,24 +15,44 @@ export class ViewVideoComponent implements OnInit {
   playtime = 0;
   countOn = 10;
   url = app_config.api_url + '/';
- 
- 
 
   constructor(
     private actRoute: ActivatedRoute,
-    private videoService: VideoService
+    private videoService: VideoService,
+    public userService: UserService,
+    private commentService: CommentService
   ) {}
 
   ngOnInit(): void {
-  
+    this.fetchVideo();
+  }
+
+  fetchVideo() {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.videoService.getVideoById(id).subscribe((data) => {
       this.videoData = data;
-      
+      console.log(data);
     });
   }
 
   addView() {}
+
+  addComment(text) {
+    let formdata = {
+      user: this.userService.currentUser._id,
+      text: text,
+      created: new Date(),
+    };
+
+    this.commentService.addComment(formdata).subscribe((data: any) => {
+      this.videoService
+        .updateComment(this.videoData._id, { comments: data._id })
+        .subscribe((res) => {
+          console.log(res);
+          this.fetchVideo();
+        });
+    });
+  }
 
   onMetadata(e, video) {
     console.log('metadata: ', e);
@@ -45,7 +67,4 @@ export class ViewVideoComponent implements OnInit {
       console.log('paused');
     };
   }
-
-
 }
-

@@ -28,7 +28,7 @@ router.get('/getbycategory/:category', (req, res) => {
 
 router.get('/getbyid/:id', (req, res) => {
 
-    Model.findById(req.params.id).populate('developer')
+    Model.findById(req.params.id).populate('developer').populate('comments')
         .then(data => {
             console.log('video fetched by id');
             res.status(200).json(data);
@@ -58,6 +58,32 @@ router.get('/getbydeveloper/:developer', (req, res) => {
     Model.find({ developer: req.params.developer })
         .then(data => {
             console.log('developer fetched ');
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
+router.put('/update/:id', (req, res) => {
+
+    Model.findByIdAndUpdate(req.params.id, req.body)
+        .then(data => {
+            console.log('video updated ');
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
+router.put('/updatecomment/:id', (req, res) => {
+
+    Model.findByIdAndUpdate(req.params.id, { $push: req.body })
+        .then(data => {
+            console.log('video updated ');
             res.status(200).json(data);
         })
         .catch(err => {

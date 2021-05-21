@@ -23,13 +23,44 @@
          
         <hr>
         <div class="row">
-           <div class="col-6">  <h3>{{videoData.developer.fullname}}</h3></div>
-           <div class="col-6" style="text-align: right;"><h5 style="margin-top: 10px;"> <i class="fa fa-user-circle" aria-hidden="true"></i> Follow </h5></div>
+            <div class="col-md-8">
+                <nb-user
+             size="large"
+             [name]="videoData.developer.fullname"
+             [title]="videoData.developer.email"
+             [picture]="url+videoData.developer.avatar">
+        </nb-user>
+            </div>
+            <div class="col-md-4">
+                <div class="float-end">
+                <button nbButton status="danger" hero><i class="fa fa-user-circle" aria-hidden="true">&nbsp;&nbsp;</i>Follow</button>
+
+                </div>
+            </div>
         </div>
+            
         <hr>
-       <div class="row">
-          <div class="col-5"><h3>Comments ::&nbsp;{{videoData.comments.length}}</h3></div>
-       </div>
+        <div class="col-5"><h3>Comments &nbsp;{{videoData.comments.length}}</h3></div>
+        <div class="comments">
+            <div class="comment" *ngFor="let comment of videoData.comments">
+              <nb-user
+                  size="small"
+                  [name]="videoData.developer.fullname"
+                  [title]="videoData.developer.email"
+                  [picture]="url+videoData.developer.avatar">
+          </nb-user>
+          <p>{{comment.created | date}}</p>
+          <p class="h5">{{comment.text}}</p>
+            </div>
+        </div>
+
+        <div class="comment-form" *ngIf="userService.loggedin">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Write Comment</mat-label>
+                <textarea matInput rows="5" #text></textarea>
+            </mat-form-field>
+            <button class="" nbButton (click)="addComment(text.value)">Add Comment</button>
+        </div>
  
  <div class="row">
     

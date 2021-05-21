@@ -12,7 +12,6 @@ const schema = mongoose.Schema({
   thumb: String,
   file: String,
   upvotes: Number,
-  comments: Array,
   views: Number,
 
 })
