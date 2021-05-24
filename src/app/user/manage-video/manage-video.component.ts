@@ -28,11 +28,13 @@ export class ManageVideoComponent implements OnInit {
   }
 
   fetchVideos() {
-    this.videoService.getAll().subscribe((res) => {
-      this.videosList = res;
-      this.loadingVideos = false;
-      console.log(this.videosList);
-    });
+    this.videoService
+      .getByUser(this.userService.currentUser._id)
+      .subscribe((res) => {
+        this.videosList = res;
+        this.loadingVideos = false;
+        console.log(this.videosList);
+      });
   }
 
   deleteVideo(id) {

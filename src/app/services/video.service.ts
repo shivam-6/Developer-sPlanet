@@ -18,6 +18,10 @@ export class VideoService {
     return this.http.get(this.url + '/getbyid/' + id);
   }
 
+  getByUser(id) {
+    return this.http.get(this.url + '/getbydeveloper/' + id);
+  }
+
   deleteVideo(id) {
     return this.http.delete(this.url + '/delete/' + id);
   }

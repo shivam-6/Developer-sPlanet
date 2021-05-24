@@ -7,6 +7,7 @@ const videoRouter = require('./routers/videoManager');
 const utilRouter = require('./routers/util');
 const queryRouter = require('./routers/queryManager');
 const commentRouter = require('./routers/commentManager');
+const solutionRouter = require('./routers/solutionManager');
 
 
 // This is how to initialize Socket.io at backend
@@ -42,6 +43,7 @@ app.use('/util', utilRouter);
 app.use('/video', videoRouter);
 app.use('/query', queryRouter);
 app.use('/comment', commentRouter);
+app.use('/solution', solutionRouter);
 
 app.use(express.static('./uploads'))
 

@@ -31,11 +31,6 @@ export class QueryDetailsComponent implements OnInit {
     });
   }
 
-  addSolution() {
-    sessionStorage.setItem('query_to_answer', JSON.stringify(this.queryData));
-    this.router.navigate(['/addsolution']);
-  }
-
   addComment(comment) {
     let formdata = this.fb.group({
       text: comment,
