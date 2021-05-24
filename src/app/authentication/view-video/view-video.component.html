@@ -22,38 +22,27 @@
         </div>
          
         <hr>
+       
         <div class="row">
-            <div class="col-md-8">
+            <div class="col -8">
                 <nb-user
-             size="large"
-             [name]="videoData.developer.fullname"
-             [title]="videoData.developer.email"
-             [picture]="url+videoData.developer.avatar">
-        </nb-user>
+                    size="large"
+                    [name]="videoData.developer.fullname"
+                    [title]="videoData.developer.email"
+                    [picture]="url+videoData.developer.avatar">
+                </nb-user>
             </div>
-            <div class="col-md-4">
+       
+            <div class="col-4">
                 <div class="float-end">
-                <button nbButton status="danger" hero><i class="fa fa-user-circle" aria-hidden="true">&nbsp;&nbsp;</i>Follow</button>
-
+                   <button nbButton status="danger" hero><i class="fa fa-user-circle" aria-hidden="true">&nbsp;&nbsp;</i>Follow</button>
                 </div>
             </div>
         </div>
             
         <hr>
-        <div class="col-5"><h3>Comments &nbsp;{{videoData.comments.length}}</h3></div>
-        <div class="comments">
-            <div class="comment" *ngFor="let comment of videoData.comments">
-              <nb-user
-                  size="small"
-                  [name]="videoData.developer.fullname"
-                  [title]="videoData.developer.email"
-                  [picture]="url+videoData.developer.avatar">
-          </nb-user>
-          <p>{{comment.created | date}}</p>
-          <p class="h5">{{comment.text}}</p>
-            </div>
-        </div>
-
+        <div class="col-5"><h3>Comments ::&nbsp;{{videoData.comments.length}}</h3></div> <hr style="color: black; font-size: 1.2rem;">
+         
         <div class="comment-form" *ngIf="userService.loggedin">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Write Comment</mat-label>
@@ -61,23 +50,47 @@
             </mat-form-field>
             <button class="" nbButton (click)="addComment(text.value)">Add Comment</button>
         </div>
- 
- <div class="row">
-    
-    <nb-card>
-        <nb-card-body>
-            <p>{{videoData.text}}</p>
           
-        </nb-card-body>
-    </nb-card>
- </div>
+        <br><br>
+      
+     
+        <div class="comments">
+            <div class="comment" *ngFor="let comment of videoData.comments">
+          
+                         <div class="row">
+                               
+                                <div class="col-md-3" style="border: 1px solid grey;">
+                                    <nb-user style="margin-bottom: 6px;"
+                                    size="large"
+                                    [name]="videoData.developer.fullname"
+                                    [title]="videoData.developer.email"
+                                    [picture]="url+videoData.developer.avatar"> 
+                                </nb-user>
+                                    <div class="row">
+                                        <div class="col-6"></div> 
+                                        <div class="col-2"><i class="fas fa-calendar" aria-hidden="true" style="font-size: 0.7rem;"></i></div>
+                                        <div class="col-4">  <p style="font-size: 0.8rem; margin-left: -25px;">{{comment.created | date}}</p></div>                                       
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-9">
+                                    <h5>{{comment.text}}</h5>
+                               </div>
+                         </div>
+                     <br><br> <hr style="color: black; font-weight: bolder; font-size: 1.
+                     2rem
+                     ;">
+      
+             </div>  
+        </div>
     </div>
-   
-    <div class="col-md-4" style="background-color: white; ">
-        <nb-card style="margin-top: 15px;">
-            <nb-card-body>
-                <h1>Recommondations</h1> <hr>
-            </nb-card-body>
-        </nb-card>
-    </div>
-</div>
+     
+        <div class="col-md-4" style="background-color: white; border-left: 7px solid grey;">
+            <nb-card style="margin-top: 15px;">
+                <nb-card-body>
+                    <h1>Recommondations</h1> <hr>
+                </nb-card-body>
+            </nb-card>
+        </div>
+  </div>
+    

@@ -54,7 +54,6 @@ import { ContactUsComponent } from './authentication/contact-us/contact-us.compo
 import { AboutUsComponent } from './authentication/about-us/about-us.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { AddSolutionComponent } from './add-solution/add-solution.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -82,7 +81,6 @@ import { FooterComponent } from './footer/footer.component';
     ChatComponent,
     ContactUsComponent,
     AboutUsComponent,
-    AddSolutionComponent,
     FooterComponent,
   ],
   imports: [
