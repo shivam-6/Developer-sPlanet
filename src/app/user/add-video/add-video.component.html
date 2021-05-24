@@ -25,21 +25,29 @@
                         </div>
                         
                         <div class="col-md-6">
-                            <select class="form-select mt-3" aria-label="Default select example">
-                                <option selected>Community</option>
-                                <option value="1">Angular</option>
-                                <option value="2">java</option>
-                                <option value="3">python</option>
-                              </select>
+                            <mat-form-field class="w-100 mt-1" appearance="outline">
+                                <mat-label class="label"> framework </mat-label>
+                                <mat-select placeholder="Gender" 
+                                  >
+                                    <mat-option value="domain">angular</mat-option>
+                                    <mat-option value="exact">react</mat-option>
+                                    <mat-option value="exact">django</mat-option>
+                                   
+                                </mat-select>
+                            </mat-form-field>
+                        
+                            <mat-form-field class="w-100 mt-2" appearance="outline">
+                                <mat-label class="label"> language </mat-label>
+                                  <mat-select placeholder="Gender"
+                                  >
+                                    <mat-option value="domain">html</mat-option>
+                                    <mat-option value="exact">java</mat-option>
+                                    <mat-option value="exact">python</mat-option>
+                                    <mat-option value="exact">C++</mat-option>
+                                  </mat-select>
+                            </mat-form-field>
 
-                              <select class="form-select" style="margin-top: 56px;" aria-label="Default select example" formControlName="category">
-                                <option selected>Category</option>
-                                <option value="1">Angular</option>
-                                <option value="2">React</option>
-                                <option value="3">Django</option>
-                              </select>
-
-                              <div class="input-group" style="margin-top: 21px;">
+                              <div class="input-group" style="margin-top: 17px;">
                                 <input type="file" (change)="uploadVideo($event)" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             </div>
                         </div>

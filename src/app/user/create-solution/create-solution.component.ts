@@ -11,5 +11,5 @@ export class CreateSolutionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }
