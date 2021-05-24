@@ -3,9 +3,9 @@ i {
   color: #000000;
 }
 
-p {
-  font-size: 1.1rem;
-  color: black;
+.title
+{
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
@@ -25,10 +25,32 @@ button:hover {
   background-color: #4b4b4b;
   color: #ff9f1a;
 }
-
+/* 
 .card-img {
   height: 15rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+} */
+
+h4
+{
+
+  font-family: roboto;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+h6
+{
+  font-weight: 290;
+  font-family: roboto;
+  color:rgb(7, 6, 6);
+  margin-top: -4px;
+  font-size: 1.3rem;
+}
+
+p
+{
+  font-weight: 300;
 }
