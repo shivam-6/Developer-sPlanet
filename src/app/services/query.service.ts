@@ -38,4 +38,16 @@ export class QueryService {
   uploadImage(file: any) {
     return this.http.post(app_config.api_url + '/util/addfile', file);
   }
+
+  updateSolutions(id, sol_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { solutions: sol_id });
+  }
+
+  updateUpvotes(id, sol_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { upvotes: sol_id });
+  }
+
+  updateComments(id, sol_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { comments: sol_id });
+  }
 }

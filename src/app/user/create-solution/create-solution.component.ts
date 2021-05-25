@@ -6,6 +6,7 @@ import { SolutionService } from 'src/app/services/solution.service';
 import { UserService } from 'src/app/services/user.service';
 import * as SimpleMDE from 'simplemde';
 import { VideoService } from 'src/app/services/video.service';
+import { app_config } from 'src/config';
 
 @Component({
   selector: 'app-create-solution',
@@ -19,6 +20,7 @@ export class CreateSolutionComponent implements OnInit {
   soltext;
   videoList;
   loading = true;
+  url = app_config.api_url + '/';
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -43,6 +45,7 @@ export class CreateSolutionComponent implements OnInit {
     this.solForm = this.fb.group({
       title: '',
       developer: this.userService.currentUser._id,
+      data: {},
       upvotes: Array,
       comments: Array,
       video: '',
@@ -59,5 +62,18 @@ export class CreateSolutionComponent implements OnInit {
         this.loading = false;
         this.initForm();
       });
+  }
+
+  submitSol() {
+    let formdata = this.solForm.value;
+    formdata.data = this.simplemde.value();
+    this.solutionService.addSolution(formdata).subscribe((res: any) => {
+      console.log(res);
+      this.queryService
+        .updateSolutions(this.queryData._id, res._id)
+        .subscribe((res) => {
+          console.log(res);
+        });
+    });
   }
 }
