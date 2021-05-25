@@ -38,4 +38,10 @@ export class QueryService {
   uploadImage(file: any) {
     return this.http.post(app_config.api_url + '/util/addfile', file);
   }
+
+  updateComment(id, data) {
+    return this.http.put(this.url + '/updatecomment/' + id, data);
+  }
+  
 }
+

@@ -1,4 +1,4 @@
-i {
+/* i {
   font-size: 1.2rem;
   color: #000000;
 }
@@ -25,13 +25,13 @@ button:hover {
   background-color: #4b4b4b;
   color: #ff9f1a;
 }
-/* 
+
 .card-img {
   height: 15rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-} */
+}
 
 h4
 {
@@ -53,4 +53,4 @@ h6
 p
 {
   font-weight: 300;
-}
+} */
