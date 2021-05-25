@@ -1,145 +1,82 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import {
-   NbTagInputDirective,
-   NbTagComponent, 
-   NbToastrService
-
-} from '@nebular/theme';
+import { ActivatedRoute } from '@angular/router';
+import { QueryService } from 'src/app/services/query.service';
+import { SolutionService } from 'src/app/services/solution.service';
 import { UserService } from 'src/app/services/user.service';
+import * as SimpleMDE from 'simplemde';
 import { VideoService } from 'src/app/services/video.service';
-import Swal from 'sweetalert2';
+import { app_config } from 'src/config';
 
 @Component({
   selector: 'app-create-solution',
   templateUrl: './create-solution.component.html',
-  styleUrls: ['./create-solution.component.css']
+  styleUrls: ['./create-solution.component.css'],
 })
 export class CreateSolutionComponent implements OnInit {
-  
-  solutionform : any;
-  avatarImage: any;
-  erroMsg: string;
-  imgURL: string | ArrayBuffer;
-  videofilename;
-  
-  @ViewChild(NbTagInputDirective, { read: ElementRef })
-  tagInput: ElementRef<HTMLInputElement>;
+  queryData;
+  solForm;
+  simplemde: any;
+  soltext;
+  videoList;
+  loading = true;
+  url = app_config.api_url + '/';
 
-  topics = [
-    'Angular',
-    'JavaScript',
-    'React',
-    'MEAN stack',
-    'TypeScript',
-    'Angular 11',
-  ];
-
-  selTopics = ['Angular'];
   constructor(
+    private actRoute: ActivatedRoute,
+    private solutionService: SolutionService,
+    private queryService: QueryService,
     private fb: FormBuilder,
     private userService: UserService,
-    private videoService: VideoService,
-    private toastr: NbToastrService
-  ) { }
+    private videoService: VideoService
+  ) {}
 
   ngOnInit(): void {
-    this.initSolutionForm();
-    document
-    .getElementsByTagName('nb-layout-column')[0]
-    .classList.add('AddVideo');
-  }
-  
-  ngOnDestroy() {
-    document
-      .getElementsByTagName('nb-layout-column')[0]
-      .classList.remove('upload');
-  }
-
-  initSolutionForm()
- { 
-  this.solutionform =this.fb.group
-  ({
-    title : '',
-    desc : '',
-     
-   })
-
- }
-
- uploadAvatar(event: any) {
-  let files = event.target.files;
-  if (files.length === 0) return;
-
-  var mimeType = files[0].type;
-  if (mimeType.match(/image\/*/) == null) {
-    Swal.fire('Images Only');
-    return;
-  }
-  this.preview(event.target.files);
-  let formData = new FormData();
-  this.avatarImage = files[0].name;
-  formData.append('file', files[0], files[0].name);
-  this.userService.uploadAvatar(formData).subscribe((response) => {
-    console.log(response);
-  });
-}
-
-uploadVideo(event) {
-  let files = event.target.files;
-  if (files.length === 0) return;
-
-  let formData = new FormData();
-  this.videofilename = files[0].name;
-  formData.append('file', files[0], files[0].name);
-  this.userService.uploadAvatar(formData).subscribe((response) => {
-    console.log(response);
-  });
-}
-
-preview(files) {
-  if (files.length === 0) return;
-
-  var mimeType = files[0].type;
-  if (mimeType.match(/image\/*/) == null) {
-    this.erroMsg = 'Only images are supported.';
-    return;
-  }
-
-  var reader = new FileReader();
-  reader.readAsDataURL(files[0]);
-  reader.onload = (_event) => {
-    this.imgURL = reader.result;
-  };
-}
-
-onTopicRemove(tagToRemove: NbTagComponent): void {
-    let index = this.selTopics.indexOf(tagToRemove.text);
-    if (index > -1) {
-      this.selTopics.splice(index, 1);
-    }
-    this.topics.push(tagToRemove.text);
-  }
-
-  onTopicAdd(value: string): void {
-    if (value) {
-      this.selTopics.push(value);
-      this.topics = this.topics.filter((t) => t !== value);
-    }
-    this.tagInput.nativeElement.value = '';
-  }
-
-submitSolutionForm() {
-  let formdata = this.solutionform.value;
-  formdata.thumb = this.avatarImage;
-  formdata.file = this.videofilename;
-
-  this.videoService.addVideo(formdata).subscribe((res) => {
-    console.log(res);
-    Swal.fire({
-      icon: 'success',
-      title: 'Great!',
-      text: 'Video Uploaded',
+    let id = this.actRoute.snapshot.paramMap.get('id');
+    this.queryService.getById(id).subscribe((data) => {
+      console.log(data);
+      this.queryData = data;
+      this.fetchUserVideos();
     });
-  });
-}}
+  }
+
+  initForm() {
+    this.simplemde = new SimpleMDE({ element: document.getElementById('sol') });
+    this.solForm = this.fb.group({
+      title: '',
+      developer: this.userService.currentUser._id,
+      data: {},
+      upvotes: Array,
+      comments: Array,
+      video: '',
+      created: new Date(),
+    });
+  }
+
+  fetchUserVideos() {
+    this.videoService
+      .getByUser(this.userService.currentUser._id)
+      .subscribe((data) => {
+        console.log(data);
+        this.videoList = data;
+        this.loading = false;
+        this.initForm();
+      });
+  }
+
+  submitSol() {
+    let formdata = this.solForm.value;
+    formdata.data = this.simplemde.value();
+    this.solutionService.addSolution(formdata).subscribe((res: any) => {
+      console.log(res);
+      this.queryService
+        .updateSolutions(this.queryData._id, res._id)
+        .subscribe((res) => {
+          console.log(res);
+        });
+    });
+  }
+}
+
+
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NbSidebarService } from '@nebular/theme';
 import { UserService } from 'src/app/services/user.service';
 import { app_config } from 'src/config';
@@ -11,6 +11,7 @@ import { app_config } from 'src/config';
 export class LayoutComponent implements OnInit {
   title = app_config.title;
   url = app_config.api_url + '/';
+  sidebar_fixed = false;
   sidebarItems = [
     {
       title: 'Profile',
@@ -38,10 +39,15 @@ export class LayoutComponent implements OnInit {
       link: 'managequery',
     },
   ];
+  innerWidth;
   constructor(
     private sidebar: NbSidebarService,
     public userService: UserService
   ) {}
 
   ngOnInit(): void {}
+
+  toggle() {
+    this.sidebar.toggle();
+  }
 }

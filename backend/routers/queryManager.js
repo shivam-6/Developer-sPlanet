@@ -68,7 +68,7 @@ router.get('/getbyCommunity/:community', (req, res) => {
 
 router.get('/getbyid/:id', (req, res) => {
 
-    Model.findById(req.params.id).populate('developer')
+    Model.findById(req.params.id).populate('developer').populate('solutions')
         .then(data => {
             console.log('query fetched by id');
             res.status(200).json(data);
@@ -79,11 +79,11 @@ router.get('/getbyid/:id', (req, res) => {
         })
 })
 
-router.put('/updatecomment/:id', (req, res) => {
+router.put('/pushupdate/:id', (req, res) => {
 
     Model.findByIdAndUpdate(req.params.id, { $push: req.body })
         .then(data => {
-            console.log('query updated ');
+            console.log('video updated ');
             res.status(200).json(data);
         })
         .catch(err => {
@@ -91,6 +91,5 @@ router.put('/updatecomment/:id', (req, res) => {
             res.status(500).json(err);
         })
 })
-
 
 module.exports = router;

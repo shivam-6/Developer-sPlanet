@@ -25,7 +25,6 @@ import { ChatComponent } from './chat/chat.component';
 import { ContactUsComponent } from './authentication/contact-us/contact-us.component';
 import { AboutUsComponent } from './authentication/about-us/about-us.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -65,12 +64,10 @@ const routes: Routes = [
       { path: 'managevideo', component: ManageVideoComponent },
       { path: 'managequery', component: ManageQueriesComponent },
       { path: 'query', component: CreateQueryComponent },
-      { path: 'createsolution', component: CreateSolutionComponent },
+      { path: 'solution/:id', component: CreateSolutionComponent },
       { path: 'chat', component: ChatComponent },
       { path: 'contactus', component: ContactUsComponent },
       { path: 'aboutus', component: AboutUsComponent },
-     
-      
     ],
   },
 ];

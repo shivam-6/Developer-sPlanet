@@ -34,23 +34,15 @@ export class QueryDetailsComponent implements OnInit {
     });
   }
 
-  
-
-  addSolution() {
-    sessionStorage.setItem('query_to_answer', JSON.stringify(this.queryData));
-    this.router.navigate(['/createsolution']);
-  }
-
-addComment(text) {
-  let formdata = {
-    user: this.userService.currentUser._id,
-    text: text,
-    created: new Date(),
-  };
+  addComment(comment) {
+    let formdata = this.fb.group({
+      text: comment,
+      user: this.userService.currentUser._id,
+    }).value;
 
   this.commentService.addComment(formdata).subscribe((data: any) => {
     this.queryService
-      .updateComment(this.queryData._id, { comments: data._id })
+      .updateComments(this.queryData._id, { comments: data._id })
       .subscribe((res) => {
         console.log(res);
         this.fetchQuery();

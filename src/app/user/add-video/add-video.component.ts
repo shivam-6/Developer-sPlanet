@@ -43,8 +43,8 @@ export class AddVideoComponent implements OnInit {
       created: new Date(),
       developer: this.userService.currentUser,
       category: '',
-      views: 0,
-      upvotes: 0,
+      views: Array,
+      upvotes: Array,
       comments: Array,
     });
   }

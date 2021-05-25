@@ -18,6 +18,10 @@ export class VideoService {
     return this.http.get(this.url + '/getbyid/' + id);
   }
 
+  getByUser(id) {
+    return this.http.get(this.url + '/getbydeveloper/' + id);
+  }
+
   deleteVideo(id) {
     return this.http.delete(this.url + '/delete/' + id);
   }
@@ -31,6 +35,14 @@ export class VideoService {
   }
 
   updateComment(id, data) {
-    return this.http.put(this.url + '/updatecomment/' + id, data);
+    return this.http.put(this.url + '/pushupdate/' + id, data);
+  }
+
+  updateUpvotes(id, user_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { upvotes: user_id });
+  }
+
+  updateViews(id, user_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { views: user_id });
   }
 }

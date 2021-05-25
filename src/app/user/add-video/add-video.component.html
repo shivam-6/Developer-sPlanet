@@ -18,6 +18,7 @@
                                 <input type="email" matInput formControlName="desc">
                             </mat-form-field>
                             
+                            <label for="">Upload Thumbnail</label>
                             <div class="input-group" style="margin-top: 21px;">
                                 <input type="file" (change)="uploadAvatar($event)" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                                 <img [src]="imgURL" alt="" *ngIf="imgURL" class="img-fluid">
@@ -47,6 +48,7 @@
                                   </mat-select>
                             </mat-form-field>
 
+                            <label for="">Upload Video File</label>
                               <div class="input-group" style="margin-top: 17px;">
                                 <input type="file" (change)="uploadVideo($event)" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             </div>

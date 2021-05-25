@@ -39,9 +39,16 @@ export class QueryService {
     return this.http.post(app_config.api_url + '/util/addfile', file);
   }
 
-  updateComment(id, data) {
-    return this.http.put(this.url + '/updatecomment/' + id, data);
+  updateSolutions(id, sol_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { solutions: sol_id });
   }
-  
+
+  updateUpvotes(id, sol_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { upvotes: sol_id });
+  }
+
+  updateComments(id, sol_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { comments: sol_id });
+  }
 }
 

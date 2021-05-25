@@ -43,7 +43,7 @@
                 <markdown [data]="queryData.query"></markdown>
             </div>
 
-            <button class="mt-4" nbButton hero status="success" (click)="addSolution()">Provide Solution</button>
+            <button class="mt-4" nbButton hero status="success" [routerLink]="['/user/solution', queryData._id]" routerLinkActive="router-link-active" >Provide Solution</button>
 
             <h4 class="mt-5">Comments</h4>
             <hr>
@@ -101,7 +101,7 @@
             <hr>
             <nb-card class="mt-3" *ngFor="let solution of queryData.solutions">
                 <nb-card-body>
-
+                    <h2>{{solution.title}}</h2>
                 </nb-card-body>
             </nb-card>
 

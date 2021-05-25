@@ -5,7 +5,7 @@
         <div class="row mt-2" ><h1  style="margin-left: 10px;">{{videoData.title}}</h1> <p style="margin-top: -17px;margin-left: 11px;">{{videoData.views}} &nbsp; Views</p></div>
         <div class="row mt-4" style="margin-left: 7px;">
             <div class="col-3">
-               <i class="far fa-thumbs-up" aria-hidden="true"> &nbsp; <p style="margin-top: 12px;">{{videoData.upvotes}}</p> </i>
+               <i class="far fa-thumbs-up" aria-hidden="true"> &nbsp; <p style="margin-top: 12px;" (click)="addLike()">{{videoData.upvotes}}</p> </i>
             </div>
          
             <div class="col-3">
