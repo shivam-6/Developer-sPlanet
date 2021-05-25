@@ -23,27 +23,38 @@ export class QueryDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.fetchQuery();
+  }
+
+  fetchQuery() {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.queryService.getById(id).subscribe((data) => {
-      console.log(data);
       this.queryData = data;
-      this.loading = false;
+      console.log(data);
     });
   }
+
+  
 
   addSolution() {
     sessionStorage.setItem('query_to_answer', JSON.stringify(this.queryData));
-    this.router.navigate(['/addsolution']);
+    this.router.navigate(['/createsolution']);
   }
 
-  addComment(comment) {
-    let formdata = this.fb.group({
-      text: comment,
-      user: this.userService.currentUser._id,
-    }).value;
+addComment(text) {
+  let formdata = {
+    user: this.userService.currentUser._id,
+    text: text,
+    created: new Date(),
+  };
 
-    this.commentService.addComment(formdata).subscribe((res) => {
-      console.log(res);
-    });
-  }
-}
+  this.commentService.addComment(formdata).subscribe((data: any) => {
+    this.queryService
+      .updateComment(this.queryData._id, { comments: data._id })
+      .subscribe((res) => {
+        console.log(res);
+        this.fetchQuery();
+      });
+  });
+}}
+                                                               

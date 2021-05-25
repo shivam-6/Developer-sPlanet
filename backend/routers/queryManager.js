@@ -65,6 +65,7 @@ router.get('/getbyCommunity/:community', (req, res) => {
         })
 })
 
+
 router.get('/getbyid/:id', (req, res) => {
 
     Model.findById(req.params.id).populate('developer')
@@ -77,5 +78,19 @@ router.get('/getbyid/:id', (req, res) => {
             res.status(500).json(err);
         })
 })
+
+router.put('/updatecomment/:id', (req, res) => {
+
+    Model.findByIdAndUpdate(req.params.id, { $push: req.body })
+        .then(data => {
+            console.log('query updated ');
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
 
 module.exports = router;
