@@ -39,7 +39,6 @@ export class LayoutComponent implements OnInit {
       link: 'managequery',
     },
   ];
-  innerWidth;
   constructor(
     private sidebar: NbSidebarService,
     public userService: UserService

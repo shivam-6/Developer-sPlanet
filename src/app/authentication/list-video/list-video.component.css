@@ -3,8 +3,7 @@ i {
   color: #000000;
 }
 
-.title
-{
+.title {
   font-size: 1.3rem;
   font-weight: bold;
 }
@@ -33,24 +32,27 @@ button:hover {
   background-size: cover;
 } */
 
-h4
-{
-
+h4 {
   font-family: roboto;
   font-weight: 500;
   font-size: 0.9rem;
 }
 
-h6
-{
+h6 {
   font-weight: 290;
   font-family: roboto;
-  color:rgb(7, 6, 6);
+  color: rgb(7, 6, 6);
   margin-top: -4px;
   font-size: 1.3rem;
 }
 
-p
-{
+p {
   font-weight: 300;
+}
+
+.card-img {
+  height: 15rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

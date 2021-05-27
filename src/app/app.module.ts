@@ -55,6 +55,7 @@ import { AboutUsComponent } from './authentication/about-us/about-us.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FooterComponent } from './footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { FooterComponent } from './footer/footer.component';
     MarkdownModule.forRoot(),
     MatNativeDateModule,
     MatDatepickerModule,
+    MatIconModule,
   ],
   providers: [
     {

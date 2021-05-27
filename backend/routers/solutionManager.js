@@ -54,7 +54,7 @@ router.get('/getbydeveloper/:developer', (req, res) => {
 
 router.get('/getbyid/:id', (req, res) => {
 
-    Model.findById(req.params.id)
+    Model.findById(req.params.id).populate('video')
         .then(data => {
             console.log('user fetched by id');
             res.status(200).json(data);
