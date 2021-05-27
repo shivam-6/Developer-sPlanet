@@ -24,12 +24,12 @@ export class LayoutComponent implements OnInit {
       link: 'addvideo',
     },
     {
-      title: 'Manage Videos',
+      title: 'Manage Your Videos',
       icon: 'person-outline',
       link: 'managevideo',
     },
     {
-      title: 'New Query',
+      title: 'Ask Query',
       icon: 'person-outline',
       link: 'query',
     },

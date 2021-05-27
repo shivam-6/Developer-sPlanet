@@ -6,20 +6,21 @@
             <nb-action class="mt-4" nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/blog/home']" routerLinkActive="router-link-active" >
                 <h1 class="site-title">{{title}}</h1>
             </nb-action>
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/home']">Home</nb-action>
-            <nb-action nbTooltip="Browse" nbTooltipIcon="home-outline" [routerLink]="['/listvideo']">List</nb-action>
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/aboutus']">About Us</nb-action>
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/contact']">Any Queries?Contact Us</nb-action>
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/home']" style="margin-left: 50px;">Home</nb-action>
+            <nb-action nbTooltip="Browse" nbTooltipIcon="home-outline" [routerLink]="['/listvideo']" style="margin-left: 60px;">Videos</nb-action>
+            <nb-action nbTooltip="Browse" nbTooltipIcon="home-outline" [routerLink]="['/listquery']" style="margin-left: 60px;">Queries</nb-action>
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/aboutus']" style="margin-left: 60px;">About Us</nb-action>
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/contact']"style="margin-left: 60px;">Any Queries?Contact Us</nb-action>
           </nb-actions>
 
           <!-- visible when not logged in -->
-          <nb-actions size="medium"  *ngIf="!userService.loggedin">
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/signup']">Register</nb-action>
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/signin']">Login</nb-action>
+          <nb-actions size="medium"  *ngIf="!userService.loggedin" >
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/signup']"style="margin-left: 60px;">Register</nb-action>
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/signin']"style="margin-left: 60px;">Login</nb-action>
           </nb-actions>
 
           <!-- visible when logged in -->
-          <nb-actions size="medium" *ngIf="userService.loggedin">
+          <nb-actions size="medium" *ngIf="userService.loggedin" style="margin-left: auto;">
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="[userService.currentUser.isadmin?'/admin':'/user']" >{{userService.currentUser.isadmin?'Admin Dashboard': 'User Dashboard'}}</nb-action>
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" (click)="userService.logout()">Logout</nb-action>
           </nb-actions>
