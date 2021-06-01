@@ -23,11 +23,14 @@ export class QueryDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.fetchQuery();
+  }
+
+  fetchQuery() {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.queryService.getById(id).subscribe((data) => {
-      console.log(data);
       this.queryData = data;
-      this.loading = false;
+      console.log(data);
     });
   }
 
@@ -37,8 +40,13 @@ export class QueryDetailsComponent implements OnInit {
       user: this.userService.currentUser._id,
     }).value;
 
-    this.commentService.addComment(formdata).subscribe((res) => {
-      console.log(res);
-    });
-  }
-}
+  this.commentService.addComment(formdata).subscribe((data: any) => {
+    this.queryService
+      .updateComments(this.queryData._id, { comments: data._id })
+      .subscribe((res) => {
+        console.log(res);
+        this.fetchQuery();
+      });
+  });
+}}
+                                                               

@@ -51,3 +51,4 @@ export class QueryService {
     return this.http.put(this.url + '/pushupdate/' + id, { comments: sol_id });
   }
 }
+

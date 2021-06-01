@@ -50,7 +50,7 @@
             <div class="comments-body" *ngFor="let comment of queryData.comments">
                 <div class="row">
                     <div class="col-10">
-                        <p>{{comment.text}}</p>
+                        <p>{{comment.value}}</p>
                     </div>
                     <div class="col-2">
 
@@ -62,9 +62,41 @@
                     <mat-label>Add Comment</mat-label>
                     <textarea matInput #comment></textarea>
                 </mat-form-field>
-                <button class="mt-1" nbButton (click)="addComment(comment.value)">Submit</button>
+                <button class="mt-1" nbButton (click)="addComment(text.value)">Submit</button>
             </div>
-
+             
+            <div class="comments">
+                <div class="comment" *ngFor="let comment of queryData.comments">
+              
+                             <div class="row">
+                                   
+                                    <div class="col-md-3" style="border: 1px solid grey;">
+                                        <nb-user style="margin-bottom: 6px;"
+                                        size="large"
+                                        [name]="queryData.developer.fullname"
+                                        [title]="queryData.developer.email"
+                                        [picture]="url+queryData.developer.avatar"> 
+                                    </nb-user>
+                                        <div class="row">
+                                            <div class="col-6"></div> 
+                                            <div class="col-2"><i class="fas fa-calendar" aria-hidden="true" style="font-size: 0.7rem;"></i></div>
+                                            <div class="col-4">  <p style="font-size: 0.8rem; margin-left: -25px;">{{comment.created | date}}</p></div>                                       
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-9">
+                                        <h5>{{comment.text}}</h5>
+                                   </div>
+                             </div>
+                         <br><br> <hr style="color: black; font-weight: bolder; font-size: 1.
+                         2rem
+                         ;">
+          
+                 </div>  
+            </div>
+            
+         
+         
             <h4 class="mt-5">Responses</h4>
             <hr>
             <nb-card class="mt-3" *ngFor="let solution of queryData.solutions">

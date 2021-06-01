@@ -30,7 +30,6 @@ export class AddVideoComponent implements OnInit {
   ];
 
   selTopics = ['Angular'];
-
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
@@ -133,7 +132,6 @@ export class AddVideoComponent implements OnInit {
     }
     this.topics.push(tagToRemove.text);
   }
-
   onTopicAdd(value: string): void {
     if (value) {
       this.selTopics.push(value);

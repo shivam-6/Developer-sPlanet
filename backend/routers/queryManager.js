@@ -65,6 +65,7 @@ router.get('/getbyCommunity/:community', (req, res) => {
         })
 })
 
+
 router.get('/getbyid/:id', (req, res) => {
 
     Model.findById(req.params.id).populate('developer').populate({ path: 'solutions', populate: { path: 'video' } })
