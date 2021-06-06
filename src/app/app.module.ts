@@ -94,8 +94,6 @@ import { MatIconModule } from '@angular/material/icon';
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NebularModule,
-    // NgsRevealModule,
-    MatFormFieldModule,
     MatInputModule,
     MatCardModule,
     MatSelectModule,
@@ -110,7 +108,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatNativeDateModule,
     MatDatepickerModule,
     MatIconModule,
+    MatFormFieldModule,
   ],
+  exports: [MatFormFieldModule],
   providers: [
     {
       provide: 'SocialAuthServiceConfig',

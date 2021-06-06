@@ -19,6 +19,8 @@
                                         <mat-label class="label">First Name</mat-label>
                                         <input type="text" matInput formControlName="firstname"
                                             style="color: rgb(0, 0, 0);">
+                                        <mat-error>Required</mat-error>
+
                                     </mat-form-field>
                                 </div>
 
@@ -27,6 +29,8 @@
                                         <mat-label class="label">Last Name</mat-label>
                                         <input type="text" matInput formControlName="lastname"
                                             style="color: rgb(0, 0, 0);">
+                                        <mat-error>Required</mat-error>
+
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -37,8 +41,8 @@
                                     <mat-form-field appearance="outline" class="w-100 mt-2">
                                         <mat-label class="label">Choose a date</mat-label>
                                         <input type="number" matInput formControlName="age">
-                                        <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                        <mat-datepicker #picker></mat-datepicker> -->
+                                        <mat-error>Required</mat-error>
+
                                     </mat-form-field>
 
                                 </div>
@@ -53,7 +57,8 @@
                                             <mat-option value="exact">Transgender</mat-option>
                                             <mat-option value="exact">Prefer not to say</mat-option>
                                         </mat-select>
-
+                                        <mat-error>Required</mat-error>
+                                        
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -65,6 +70,8 @@
                                     <mat-form-field class="w-100 mt-2" appearance="outline">
                                         <mat-label class="label">E-mail</mat-label>
                                         <input type="text" matInput formControlName="email">
+                                        <mat-error>Invalid Email</mat-error>
+
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
@@ -72,6 +79,8 @@
                                     <mat-form-field class="w-100 mt-2" appearance="outline">
                                         <mat-label class="label">Mobile No.</mat-label>
                                         <input type="tel" matInput maxlength="10" formControlName="mobile">
+                                        <mat-error>Required</mat-error>
+
                                     </mat-form-field>
                                 </div>
                             </div>
@@ -83,6 +92,8 @@
                                     <mat-form-field class=" w-100 mt-2" appearance="outline">
                                         <mat-label class="label">Password</mat-label>
                                         <input type="text" matInput formControlName="password">
+                                        <mat-error>Required</mat-error>
+
                                     </mat-form-field><br>
                                 </div>
 
@@ -90,6 +101,8 @@
                                     <mat-form-field class=" w-100 mt-2" appearance="outline">
                                         <mat-label class="label">Confirm</mat-label>
                                         <input type="text" matInput formControlName="confirm">
+                                        <mat-error>Password Doesn't match</mat-error>
+
                                     </mat-form-field>
                                 </div>
                             </div>
