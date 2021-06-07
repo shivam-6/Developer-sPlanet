@@ -2,7 +2,7 @@
 const express = require("express")
 const router = express.Router();
 const multer = require('multer');
-
+const nodemailer = require('nodemailer');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, './uploads');
@@ -18,34 +18,34 @@ router.post('/addfile', upload.single('file'), (req, res) => {
     res.json({ message: "File upload success" })
 })
 
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: config.email,
+        pass: config.app_password
+    }
+});
+
 router.post('/sendmail', (req, res) => {
-    data = req.body;
-    sendMail(data, (err) => {
-        if (err) {
-            console.error(err);
-            res.json(err)
+
+    const data = req.body;
+
+    const mailOptions = {
+        from: config.email,
+        to: data.to,
+        subject: data.subject,
+        text: data.message
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+            res.status(500).json(error);
+        } else {
+            res.status(200).json({ message: 'mail sent successfully!' });
         }
-        else res.json({ message: "success" })
     });
 })
 
-const sendMail = (data, callback, username = "pulkitsrivastava13@gmail.com", password = "bzhupefpgspewnnm") => {
-    var server = mailjs.server.connect({
-        user: username,
-        password: password,
-        host: "smtp.gmail.com",
-        ssl: true
-
-    });
-
-    //send the message and get a callback with an error or details of the messsage that was sent
-    server.send({
-        text: data.message,
-        from: data.from,
-        to: data.to,
-        cc: "pulkitsrivastava13@gmail.com",
-        subject: data.subject
-    }, callback);
-}
 
 module.exports = router;
