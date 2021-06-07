@@ -16,6 +16,7 @@ export class UserService {
     if (user) {
       this.loggedin = true;
       this.currentUser = JSON.parse(user);
+      console.log(this.currentUser);
     }
   }
 
@@ -41,6 +42,14 @@ export class UserService {
 
   uploadAvatar(file: any) {
     return this.http.post(app_config.api_url + '/util/addfile', file);
+  }
+
+  pushUpdate(id, data) {
+    return this.http.put(this.url + '/pushupdate/' + id, data);
+  }
+
+  pullUpdate(id, data) {
+    return this.http.put(this.url + '/pullupdate/' + id, data);
   }
 
   logout() {

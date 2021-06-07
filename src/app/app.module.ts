@@ -10,6 +10,7 @@ import {
   NbSidebarModule,
   NbMenuModule,
   NbToastrModule,
+  NbSearchModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -56,6 +57,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FooterComponent } from './footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
+import { RecommendationsComponent } from './user/recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,7 @@ import { MatIconModule } from '@angular/material/icon';
     ContactUsComponent,
     AboutUsComponent,
     FooterComponent,
+    RecommendationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,6 +112,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatDatepickerModule,
     MatIconModule,
     MatFormFieldModule,
+    NbSearchModule,
   ],
   exports: [MatFormFieldModule],
   providers: [

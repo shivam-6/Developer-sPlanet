@@ -35,7 +35,7 @@
        
             <div class="col-4">
                 <div class="float-end">
-                   <button nbButton status="danger" hero><mat-icon aria-hidden="false">account_circle</mat-icon>&nbsp;&nbsp;Follow</button>
+                   <button nbButton status="danger" hero (click)="addFollower(videoData.developer._id)"><mat-icon aria-hidden="false">account_circle</mat-icon>&nbsp;&nbsp;{{followtext}}</button>
                 </div>
             </div>
         </div>

@@ -53,6 +53,8 @@ export class SignupComponent implements OnInit {
         mobile: [0, Validators.required],
         created: new Date(),
         isadmin: false,
+        followers: Array,
+        following: Array,
       },
       { validator: this.matchPassword('password', 'confirm') }
     );

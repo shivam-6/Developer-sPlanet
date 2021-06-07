@@ -7,10 +7,12 @@ const schema = mongoose.Schema({
     email: String,
     password: String,
     age: Number,
-    gender : String,
-    mobile : Number,
+    gender: String,
+    mobile: Number,
     created: Date,
-    isadmin: Boolean
+    isadmin: Boolean,
+    following: [{ type: mongoose.Types.ObjectId, ref: 'User' }],
+    followers: [{ type: mongoose.Types.ObjectId, ref: 'User' }],
 })
 
 

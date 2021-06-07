@@ -38,6 +38,11 @@ export class LayoutComponent implements OnInit {
       icon: 'person-outline',
       link: 'managequery',
     },
+    {
+      title: 'Your Recommendations',
+      icon: 'person-outline',
+      link: 'recommendations',
+    },
   ];
   constructor(
     private sidebar: NbSidebarService,
