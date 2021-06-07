@@ -11,6 +11,7 @@ import { app_config } from 'src/config';
 export class LayoutComponent implements OnInit {
   title = app_config.title;
   url = app_config.api_url + '/';
+  sidebar_fixed = false;
   sidebarItems = [
     {
       title: 'Profile',
@@ -28,10 +29,15 @@ export class LayoutComponent implements OnInit {
       link: 'dashboard',
     },
   ];
+ 
   constructor(
     private sidebar: NbSidebarService,
     public userService: UserService
   ) {}
 
   ngOnInit(): void {}
+ 
+  toggle() {
+    this.sidebar.toggle();
+  }
 }

@@ -3,6 +3,9 @@
 
         <!-- always visible -->
         <nb-actions size="medium">
+            <nb-action>
+                <button nbButton status="primary" (click)="toggle()"><nb-icon icon="menu-2-outline" status="control"></nb-icon></button>
+              </nb-action>
             <nb-action class="mt-4" nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/blog/home']" routerLinkActive="router-link-active" >
                 <h1 class="site-title">{{title}}</h1>
             </nb-action>
@@ -30,9 +33,9 @@
              [routerLink]="[userService.currentUser.isadmin?'/admin':'/user']">
         </nb-user>
     </nb-layout-header>
-    <nb-sidebar>
+    <nb-sidebar responsive>
         <nb-menu [items]="sidebarItems">
-
+         
         </nb-menu>
     </nb-sidebar>
 

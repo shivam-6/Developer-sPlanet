@@ -12,6 +12,8 @@ import { app_config } from 'src/config';
 })
 export class ViewVideoComponent implements OnInit {
   videoData;
+  videoList;
+  loading=true;
   playtime = 0;
   countOn = 10;
   url = app_config.api_url + '/';
@@ -25,8 +27,9 @@ export class ViewVideoComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchVideo();
+    this.fetchVideos();
   }
-
+  
   fetchVideo() {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.videoService.getVideoById(id).subscribe((data) => {
@@ -90,4 +93,12 @@ export class ViewVideoComponent implements OnInit {
       console.log('paused');
     };
   }
+  fetchVideos() {
+    this.videoService.getAll().subscribe((data) => {
+      this.videoList = data;
+      this.loading = false;
+      console.log(data);
+    });
+  }
+
 }
