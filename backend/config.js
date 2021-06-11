@@ -1,4 +1,3 @@
-const { getMaxListeners } = require("node:process");
 
 const api_config =
  {
