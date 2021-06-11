@@ -12,6 +12,8 @@ import { app_config } from 'src/config';
 })
 export class ViewVideoComponent implements OnInit {
   videoData;
+  videoList;
+  loading=true;
   playtime = 0;
   countOn = 10;
   followtext = 'Follow';
@@ -26,8 +28,9 @@ export class ViewVideoComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchVideo();
+    
   }
-
+  
   fetchVideo() {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.videoService.getVideoById(id).subscribe((data: any) => {
