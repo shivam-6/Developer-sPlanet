@@ -1,0 +1,44 @@
+<div class="" *ngIf="!loading" style="color: black;">
+  
+    <div class="row">
+        <div class="col-md-3" *ngFor="let video of videoList">
+            <nb-card>
+              <div class="card-img" [routerLink]="['/view', video._id]" [ngStyle]="{backgroundImage: 'url('+url+video.thumb+')'}"></div>
+              
+              <div style="padding: 1rem;">
+                <hr >
+                            <div class="row">
+                <div class="col-3 col-lg-2 mt-1">
+                  <nb-user
+                  size="large"
+                  [name]=" d"
+                  [picture]="url+video.developer.avatar"
+                  >
+                  </nb-user>
+                </div>
+                 <div class="col-9 col-lg-10">
+                      <div class="row">
+                        <p class="title">{{video.title}}</p>
+                        <p class="sub-title">{{video.developer.fullname}}</p>
+                      </div>
+                      <div class="row">
+  
+                        <div class="col-3">
+                          <p>{{video.views.length}} &nbsp; views</p>
+                        </div>
+  
+                        <div class="col-5">
+                           <p>{{video.created | date}}</p>
+                        </div>
+                        <div class="col-md-4">
+                          <p>{{video.upvotes.length}} Upvotes</p>
+                        </div>
+                      </div>
+                 </div>
+              </div>
+              </div>
+  
+        </nb-card>
+    
+      </div>
+    </div>

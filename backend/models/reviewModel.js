@@ -9,6 +9,6 @@ const schema = mongoose.Schema({
 })
 
 
-const model = mongoose.model('Solutions', schema);
+const model = mongoose.model('reviews', schema);
 
 module.exports = model;

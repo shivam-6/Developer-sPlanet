@@ -24,6 +24,7 @@ import { CreateSolutionComponent } from './user/create-solution/create-solution.
 import { ChatComponent } from './chat/chat.component';
 import { ContactUsComponent } from './authentication/contact-us/contact-us.component';
 import { AboutUsComponent } from './authentication/about-us/about-us.component';
+import { RecommendationsComponent } from './user/recommendations/recommendations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -68,6 +69,7 @@ const routes: Routes = [
       { path: 'chat', component: ChatComponent },
       { path: 'contactus', component: ContactUsComponent },
       { path: 'aboutus', component: AboutUsComponent },
+      { path: 'recommendations', component: RecommendationsComponent },
     ],
   },
 ];

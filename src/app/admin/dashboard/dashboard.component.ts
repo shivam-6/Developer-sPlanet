@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import * as CanvasJS from '../../../assets/canvasjs.min';
 import { Observable } from 'rxjs';
-
+import { QueryService } from 'src/app/services/query.service';
+import { VideoService } from 'src/app/services/video.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,15 +12,18 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
   usersList: any;
-  blogsList: any;
+  videosList: any;
+  queriesList: any;
   constructor(
     public userService: UserService,
-    
+    private queryService: QueryService,
+    private videoService: VideoService
   ) {}
 
   ngOnInit(): void {
     this.getUsers();
-   
+    this.getQueries();
+    this.getVideo();
   }
 
   // getSellers() {
@@ -31,12 +35,27 @@ export class DashboardComponent implements OnInit {
 
   getUsers() {
     this.userService.getAll().subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.usersList = data;
       this.prepareRegData(this.usersList);
     });
   }
 
+  getVideo() {
+    this.videoService.getAll().subscribe((data) => {
+      // console.log(data);
+      this.videosList = data;
+      this.prepareVideoData(this.usersList);
+    });
+  }
+
+  getQueries() {
+    this.queryService.getAll().subscribe((data) => {
+      // console.log(data);
+      this.queriesList = data;
+      this.prepareQueryData(this.usersList);
+    });
+  }
 
   drawchart(id, datapoints, title, unit, xlabel) {
     var chart = new CanvasJS.Chart(id, {
@@ -62,7 +81,7 @@ export class DashboardComponent implements OnInit {
 
   prepareRegData(users) {
     this.getDatewiseValues(users, 'created').subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       let regData = data;
       this.drawchart(
         'regByDate',
@@ -74,14 +93,41 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  prepareVideoData(list) {
+    this.getDatewiseValues(list, 'created').subscribe((data) => {
+      // console.log(data);
+      let regData = data;
+      this.drawchart(
+        'vidByDate',
+        regData,
+        'Videos Data',
+        'videos(s)',
+        'No. of Videos Uploaded'
+      );
+    });
+  }
+
+  prepareQueryData(list) {
+    this.getDatewiseValues(list, 'created').subscribe((data) => {
+      // console.log(data);
+      let regData = data;
+      this.drawchart(
+        'queryByDate',
+        regData,
+        'Queries Data',
+        'queries(s)',
+        'No. of Queries asked'
+      );
+    });
+  }
 
   getDatewiseValues(records, colname) {
-    console.log(records);
+    // console.log(records);
     return Observable.create((observer) => {
       let datewise = [];
       this.getUniqueValues(colname, records).subscribe((unique_values) => {
         for (let value of unique_values[1]) {
-          console.log(value);
+          // console.log(value);
           datewise.push({
             x: new Date(value),
             y: this.getCount(unique_values[0], value),

@@ -16,6 +16,7 @@ export class ViewVideoComponent implements OnInit {
   loading=true;
   playtime = 0;
   countOn = 10;
+  followtext = 'Follow';
   url = app_config.api_url + '/';
 
   constructor(
@@ -27,16 +28,19 @@ export class ViewVideoComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchVideo();
-    this.fetchVideos();
+    
   }
   
   fetchVideo() {
     let id = this.actRoute.snapshot.paramMap.get('id');
-    this.videoService.getVideoById(id).subscribe((data) => {
+    this.videoService.getVideoById(id).subscribe((data: any) => {
       this.videoData = data;
       console.log(data);
       if (this.userService.loggedin) {
         this.addView();
+      }
+      if (this.checkFollowing(data.developer._id)) {
+        this.followtext = 'Unfollow';
       }
     });
   }
@@ -93,12 +97,29 @@ export class ViewVideoComponent implements OnInit {
       console.log('paused');
     };
   }
-  fetchVideos() {
-    this.videoService.getAll().subscribe((data) => {
-      this.videoList = data;
-      this.loading = false;
-      console.log(data);
-    });
+
+  addFollower(id) {
+    if (!this.checkFollowing(id)) {
+      this.userService
+        .pushUpdate(this.userService.currentUser._id, { following: id })
+        .subscribe((data) => {
+          console.log(data);
+          this.followtext = 'Unfollow';
+          this.userService.refreshUser();
+        });
+    } else {
+      this.userService
+        .pullUpdate(this.userService.currentUser._id, { following: id })
+        .subscribe((data) => {
+          console.log(data);
+          this.followtext = 'Follow';
+          this.userService.refreshUser();
+        });
+    }
   }
 
+  checkFollowing(id) {
+    console.log(this.userService.currentUser.following);
+    return this.userService.currentUser.following.includes(id);
+  }
 }

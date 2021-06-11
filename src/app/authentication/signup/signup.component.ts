@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
   GoogleLoginProvider,
@@ -40,19 +40,37 @@ export class SignupComponent implements OnInit {
   }
 
   initSignupForm() {
-    this.signupform = this.fb.group({
-      firstname: '',
-      lastname: '',
-      avatar: '',
-      email: '',
-      password: '',
-      confirm: '',
-      age: 0,
-      gender: '',
-      mobile: 0,
-      created: new Date(),
-      isadmin: false,
-    });
+    this.signupform = this.fb.group(
+      {
+        firstname: ['', Validators.required],
+        lastname: ['', Validators.required],
+        avatar: ['', Validators.required],
+        email: ['', Validators.email],
+        password: ['', Validators.required],
+        confirm: ['', Validators.required],
+        age: [0, Validators.required],
+        gender: ['', Validators.required],
+        mobile: [0, Validators.required],
+        created: new Date(),
+        isadmin: false,
+        followers: Array,
+        following: Array,
+      },
+      { validator: this.matchPassword('password', 'confirm') }
+    );
+  }
+
+  matchPassword(password, repassword) {
+    return (registerForm) => {
+      let control1 = registerForm.controls[password];
+      let control2 = registerForm.controls[repassword];
+
+      if (control1.value !== control2.value) {
+        control2.setErrors({ match: true });
+      } else {
+        control2.setErrors(null);
+      }
+    };
   }
 
   uploadAvatar(event: any) {
@@ -90,6 +108,14 @@ export class SignupComponent implements OnInit {
   }
 
   submitSignupForm() {
+    if (!this.signupform.valid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Ooops!',
+        text: 'Invalid Form',
+      });
+      return;
+    }
     let formdata = this.signupform.value;
     formdata.avatar = this.avatarImage;
     this.userService.addUser(formdata).subscribe((res) => {
