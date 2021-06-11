@@ -1,5 +1,6 @@
 // const mailjs = require('emailjs/email');
-const express = require("express")
+const express = require("express");
+const config  = require('../config');
 const router = express.Router();
 const multer = require('multer');
 const nodemailer = require('nodemailer');
