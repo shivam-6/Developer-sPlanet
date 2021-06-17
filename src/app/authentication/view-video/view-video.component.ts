@@ -12,8 +12,8 @@ import { app_config } from 'src/config';
 })
 export class ViewVideoComponent implements OnInit {
   videoData;
-  videoList;
-  loading=true;
+  videoList = [];
+  loading = true;
   playtime = 0;
   countOn = 10;
   followtext = 'Follow';
@@ -28,9 +28,9 @@ export class ViewVideoComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchVideo();
-    
+    this.fetchRecommendations(this.userService.currentUser.following);
   }
-  
+
   fetchVideo() {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.videoService.getVideoById(id).subscribe((data: any) => {
@@ -121,5 +121,15 @@ export class ViewVideoComponent implements OnInit {
   checkFollowing(id) {
     console.log(this.userService.currentUser.following);
     return this.userService.currentUser.following.includes(id);
+  }
+
+  fetchRecommendations(dev_ids) {
+    for (let id of dev_ids) {
+      this.videoService.getByUser(id).subscribe((data) => {
+        console.log(data);
+        this.videoList = this.videoList.concat(data);
+        this.loading = false;
+      });
+    }
   }
 }
