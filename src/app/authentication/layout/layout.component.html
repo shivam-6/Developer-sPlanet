@@ -1,13 +1,13 @@
 <nb-layout>
-    <nb-layout-header fixed>
+    <nb-layout-header fixed responsive>
 
         <!-- always visible -->
         <nb-actions size="medium">
           <nb-action>
           
           </nb-action>
-            <nb-action class="mt-4" nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/blog/home']" routerLinkActive="router-link-active" >
-                <h1 class="site-title">{{title}}</h1>
+            <nb-action class="mt-1" nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/blog/home']" routerLinkActive="router-link-active" >
+                <h3 class="site-title">{{title}}</h3>
             </nb-action>
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/home']" style="margin-left: 50px;">Home</nb-action>
             <nb-action nbTooltip="Browse" nbTooltipIcon="home-outline" [routerLink]="['/listvideo']" style="margin-left: 60px;">Videos</nb-action>
@@ -17,9 +17,9 @@
           </nb-actions>
 
           <!-- visible when not logged in -->
-          <nb-actions size="medium"  *ngIf="!userService.loggedin" >
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/signup']"style="margin-left: 60px;">Register</nb-action>
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/signin']"style="margin-left: 60px;">Login</nb-action>
+          <nb-actions size="medium"  *ngIf="!userService.loggedin" style="margin-left: auto;" >
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/signup']">Register</nb-action>
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/signin']">Login</nb-action>
           </nb-actions>
 
           <!-- visible when logged in -->
