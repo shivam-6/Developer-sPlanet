@@ -27,7 +27,7 @@ import { AboutUsComponent } from './authentication/about-us/about-us.component';
 import { RecommendationsComponent } from './user/recommendations/recommendations.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/signin', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {
     path: '',

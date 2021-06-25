@@ -1,7 +1,9 @@
-<div class="col-md-3 mx-auto">
+<div class="col-md-8 mx-auto">
     <div class="row">
         <nb-card style="margin-top:5%;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);background-color:  #ecf0f1;">
+          
             <nb-card-body style="padding: 2rem;">
+             <div class="col-md-4">
                 <h3 class="text-center" style="font-family: arsenal;">Sign-In</h3>
                 <hr>
               
@@ -32,20 +34,20 @@
                     <div style="text-align: center; color: #c7ecee ">
                         <p style="font-size: 1.1rem;font-weight: bold;color: black;margin-top: 35px;">Or</p>
                     </div>
-
+    
                     <div style="text-align: center;" class="mb-3 mt-3">
                         <a class="btn btn-hover btn-floating m-1" href="#!" role="button" (click)="loginWithGoogle()"><i class="fab fa-google"
                                 style="font-size: 2.5rem;"></i></a>
-
+    
                         <a class="btn btn-hover btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook"
                                 style="font-size: 2.6rem;"></i></a>
-
+    
                         <a class="btn btn-hover btn-floating m-1" href="#!" role="button"><i
                                 class="fab fa-instagram" style="font-size: 2.6rem;"></i></a>
-
+    
                     </div>
-
-
+    
+    
                     <div class=" row mt-3">
                         <p style="font-size: 1.3rem; color: rgba(0, 0, 0, 0.87);font-family: roboto;">Not Yet Register? <a
                                 [routerLink]="['/signup']" routerLinkActive="router-link-active"
@@ -60,9 +62,13 @@
                                 </a>
                     </div>
                 </form>
-    
-            
+             </div>
+              
+             <div class="col-md-8 ">
+           
+            </div>
             </nb-card-body>
         </nb-card>
     </div>
 </div>
+
