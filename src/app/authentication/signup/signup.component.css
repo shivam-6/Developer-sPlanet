@@ -30,7 +30,10 @@ input
     border-radius: 20px;
     padding: 30px;
     background-color: #fdffff;
+    background-image: url("/assets/images/pen1.jpg");
+ 
 }
+
 
 .label {
     font-weight: bold;
@@ -93,4 +96,9 @@ input
   .fa-facebook {
     color: blue;
     background-color: #fff;
+  }
+
+
+  .body{
+      background: url("/assets/images/pen.jpg");
   }
