@@ -17,6 +17,7 @@ export class LayoutComponent implements OnInit {
       title: 'Profile',
       icon: 'person-outline',
       link: 'profile',
+      
     },
     {
       title: 'Add Video',

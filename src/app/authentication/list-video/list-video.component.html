@@ -1,13 +1,14 @@
 <div class="" *ngIf="!loading" style="color: black;">
   
-  <nb-card>
-    <nb-card-body>
-    <nb-search type="rotate-layout"></nb-search>
+  <div class="input-group rounded mb-3">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+    aria-describedby="search-addon" />
+  <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search"></i>
+  </span>
+</div>
 
-    </nb-card-body>
-  </nb-card>
-
-  <div class="row">
+  <div class="row mt-5">
       <div class="col-md-3" *ngFor="let video of videoList">
           <nb-card>
             <div class="card-img" [routerLink]="['/view', video._id]" [ngStyle]="{backgroundImage: 'url('+url+video.thumb+')'}"></div>
@@ -30,15 +31,15 @@
                     </div>
                     <div class="row">
 
-                      <div class="col-3">
+                      <div class="col-4">
                         <p>{{video.views.length}} &nbsp; views</p>
                       </div>
 
                       <div class="col-5">
                          <p>{{video.created | date}}</p>
                       </div>
-                      <div class="col-md-4">
-                        <p>{{video.upvotes.length}} Upvotes</p>
+                      <div class="col-3">
+                        <p>{{video.upvotes.length}} UP</p>
                       </div>
                     </div>
                </div>

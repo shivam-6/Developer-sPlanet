@@ -9,8 +9,8 @@ button {
 }
 
 button:hover {
-    background-color: rgb(236, 6, 198);
-    color: white;
+    background-color:#cda45e ;
+    color: black;
 }
 
 input
@@ -32,8 +32,8 @@ input
 {
     width: 200px;
     height: 40px;
-    color: black;
-    background-color: #dff9fb;
+    color: white;
+    background-color: blue;
 }
 
 

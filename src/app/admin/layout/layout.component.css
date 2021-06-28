@@ -1,4 +1,4 @@
-/* h1,
+h1,
 h2,
 h3,
 h4,
@@ -11,4 +11,20 @@ h6 {
   line-height: 1.65;
   margin: 0 0 1em 0;
   text-transform: uppercase;
-} */
+}
+.dev
+{
+    color: #cda45e;
+}
+.pla
+{
+    color: white;
+}
+
+.bro
+{
+    color: #cda45e;
+    font-weight: bold;
+    cursor: pointer;
+}
+

@@ -34,6 +34,7 @@ export class SigninComponent implements OnInit {
       this.socialUser = user;
       this.isLoggedin = user != null;
       console.log(this.socialUser);
+    
     });
   }
 
@@ -41,6 +42,7 @@ export class SigninComponent implements OnInit {
     document
       .getElementsByTagName('nb-layout-column')[0]
       .classList.remove('login');
+
   }
 
   initSigninForm() {

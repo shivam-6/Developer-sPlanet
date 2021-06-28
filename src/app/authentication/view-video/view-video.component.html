@@ -30,7 +30,7 @@
             <div class="col -8">
                 <nb-user
                     size="large"
-                    [name]="videoData.developer.fullname"
+                    [name]="videoData.developer.firstname"
                     [title]="videoData.developer.email"
                     [picture]="url+videoData.developer.avatar">
                 </nb-user>
@@ -99,9 +99,9 @@
                                     <img [src]="url+video.thumb" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-md-8">
-                                    <h2>
-                                        <a [routerLink]="['/view', video._id]" routerLinkActive="router-link-active" >{{video.title}}</a>
-                                    </h2>
+                                    <h6>
+                                        <a style="text-decoration: none; color: black;" [routerLink]="['/view', video._id]" routerLinkActive="router-link-active" >{{video.title}}</a>
+                                    </h6>
                                 </div>
                             </div>
                         </nb-card>

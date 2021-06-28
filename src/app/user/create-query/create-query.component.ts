@@ -28,6 +28,8 @@ export class CreateQueryComponent implements OnInit {
     'MEAN stack',
     'TypeScript',
     'Angular 11',
+    'html',
+    'c++'
   ];
 
   selTopics = ['Angular'];

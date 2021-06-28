@@ -9,8 +9,8 @@ button {
 }
 
 button:hover {
-    background-color: rgb(236, 6, 198);
-    color: white;
+    background-color:#cda45e ;
+    color: black;
 }
 
 input
@@ -29,8 +29,8 @@ input
     margin: 1px auto;
     border-radius: 20px;
     padding: 30px;
-    background-color: #fdffff;
-    background-image: url("/assets/images/123.jpg");
+    background-color:  #ecf0f1;;
+    
  
 }
 
@@ -63,8 +63,9 @@ input
 {
     width: 200px;
     height: 40px;
-    color: black;
-    background-color: #dff9fb;
+    color: white;
+    background-color: blue;
+
 }
 
 

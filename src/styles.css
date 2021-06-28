@@ -1,11 +1,12 @@
 html,
-body {
+/* body {
   height: 100%;
 
-}
+} */
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  /* background: url("/assets/images/796854.jpg"); */
 }
 /* 
 .login {
@@ -13,15 +14,47 @@ body {
 } */
 
 /* .register {
-  background: url("assets/register_back.png") no-repeat center;
+  background: url("assets/images/796854.jpg") no-repeat center;
   background-attachment: fixed;
 } */
+
 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.site-title
-{
-  font-size: 0.5rem;
+
+
+.nb-theme-default nb-menu .menu-item a {
+
+  color: #cda45e;
+ text-decoration: none;
+
 }
+
+.nb-theme-default nb-menu .menu-item a :hover {
+
+  color: white;
+  text-decoration: none;
+  
+}
+
+
+.nb-theme-default nb-menu .menu-item .menu-icon {
+color:#cda45e ;
+
+}
+
+.nb-theme-default nb-menu .menu-item .menu-icon :hover{
+  color:white ;
+  text-decoration: none;
+  
+  }
+  
+  .nb-theme-default nb-user .user-name {
+    color:#cda45e ;
+  }
+
+  .nb-theme-default nb-user .user-title {
+    color:#cda45e ;
+  }

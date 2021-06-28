@@ -27,6 +27,10 @@ export class AddVideoComponent implements OnInit {
     'MEAN stack',
     'TypeScript',
     'Angular 11',
+    'c',
+    'c++',
+    'php',
+    'html'
   ];
 
   selTopics = ['Angular'];

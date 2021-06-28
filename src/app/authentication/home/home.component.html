@@ -29,7 +29,7 @@
         <li><a class="nav-link scrollto active" style="font-size: 1.1rem; font-weight: bold;" [routerLink]="['/listvideo']" routerLinkActive="router-link-active" >Videos</a></li>
         <li><a class="nav-link scrollto active" style="font-size: 1.1rem; font-weight: bold;" [routerLink]="['/listquery']" routerLinkActive="router-link-active" >Queries</a></li>
         <li><a class="nav-link scrollto active" style="font-size: 1.1rem; font-weight: bold;" [routerLink]="['/user/query']" routerLinkActive="router-link-active" >Ask query</a></li>
-        <li><a class="nav-link scrollto active" style="font-size: 1.1rem; font-weight: bold;" [routerLink]="['/addvideo']" routerLinkActive="router-link-active" >Upload</a></li>
+        <li><a class="nav-link scrollto active" style="font-size: 1.1rem; font-weight: bold;" [routerLink]="['/user/addvideo']" routerLinkActive="router-link-active" >Upload</a></li>
        
         <li><a class="nav-link scrollto active" style="font-size: 1.1rem; font-weight: bold;" [routerLink]="['/user/aboutus']" routerLinkActive="router-link-active" >About-Us</a></li>
         <li><a class="nav-link scrollto active" style="font-size: 1.1rem; font-weight: bold;" [routerLink]="['/user/contactus']" routerLinkActive="router-link-active" >Contact-us</a></li>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
-        <a href="https://www.youtube.com/watch?v=GlrxcuEDyF8" class="glightbox play-btn"></a>
+        <a [routerLink]="['/listvideo']" routerLinkActive="router-link-active"  class="glightbox play-btn"></a>
       </div>
 
     </div>
@@ -71,7 +71,7 @@
       <div class="row">
         <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
           <div class="about-img">
-            <img src="assets/images/pg3.jpg" alt="">
+            <img src="assets/images/pg3.jpg" alt="" >
           </div>
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
