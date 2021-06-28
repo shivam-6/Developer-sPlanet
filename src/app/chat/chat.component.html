@@ -1,14 +1,17 @@
-  
 <div class="col-md-10 mx-auto" style="height: 45rem;">
-    <nb-chat title="Nebular Conversational UI">
-        <nb-chat-message *ngFor="let msg of messageList"
-                         [message]="msg.text"
-                         [reply]="msg.reply"
-                         [sender]="msg.user.fullname"
-                         [date]="msg.created"
-                         [avatar]="url+msg.user.avatar">
-        </nb-chat-message>
-        <nb-chat-form (send)="sendMessage($event)">
-        </nb-chat-form>
-      </nb-chat>
+  <nb-card class="mt-5">
+    <nb-card-header accent="danger">Select Community</nb-card-header>
+    <nb-card-body class="card-body">
+      <nb-select placeholder="Select Commnunity" class="w-100" [(ngModel)]="selCom" (ngModelChange)="setRoom($event)">
+        <nb-option *ngFor="let com of communities" [value]="com">{{com}}</nb-option>
+      </nb-select>
+    </nb-card-body>
+  </nb-card>
+  <nb-chat title="Community Chat">
+    <nb-chat-message *ngFor="let msg of messageList" [message]="msg.text" [reply]="msg.reply"
+      [sender]="msg.user.fullname" [date]="msg.created" [avatar]="url+msg.user.avatar">
+    </nb-chat-message>
+    <nb-chat-form (send)="sendMessage($event)">
+    </nb-chat-form>
+  </nb-chat>
 </div>

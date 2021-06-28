@@ -1,51 +1,59 @@
 <div class="row" *ngIf="videoData" style="margin-top: -30px;">
 
     <div class="col-md-8" style="background-color: white;">
-        <video class="img-fluid" [src]="url+videoData.file" #video (loadedmetadata)="onMetadata($event, video)" controls style="margin-top: 10px; border: solid 1px grey;"></video> <hr>
-        <div class="row mt-2" >
-            <h1  style="margin-left: 10px;">{{videoData.title}}</h1> 
+        <video class="img-fluid" [src]="url+videoData.file" #video (loadedmetadata)="onMetadata($event, video)" controls
+            style="margin-top: 10px; border: solid 1px grey;"></video>
+        <hr>
+        <div class="row mt-2">
+            <h1 style="margin-left: 10px;">{{videoData.title}}</h1>
             <p style="margin-top: -17px;margin-left: 11px;">{{videoData.views.length}} &nbsp; Views</p>
         </div>
         <div class="row mt-4" style="margin-left: 7px;">
             <div class="col-3">
-               <i class="far fa-thumbs-up" aria-hidden="true"> &nbsp; <p style="margin-top: 12px;" (click)="addLike()">{{videoData.upvotes}}</p> </i>
+                <i class="far fa-thumbs-up" aria-hidden="true"> &nbsp; <p style="margin-top: 12px;" (click)="addLike()">
+                        {{videoData.upvotes}}</p> </i>
             </div>
-         
+
             <div class="col-3">
-                <i class="far fa-calendar" aria-hidden="true" > &nbsp; <p style="margin-top: 10px; margin-left: -31px;">{{videoData.created | date}}</p> </i>
+                <i class="far fa-calendar" aria-hidden="true"> &nbsp; <p style="margin-top: 10px; margin-left: -31px;">
+                        {{videoData.created | date}}</p> </i>
             </div>
-           
+
             <div class="col-3">
-                <i class="fas fa-share" aria-hidden="true"  > &nbsp; <p style="margin-top: 10px;margin-left: -8px;">Share</p> </i>
+                <i class="fas fa-share" aria-hidden="true"> &nbsp; <p style="margin-top: 10px;margin-left: -8px;">Share
+                    </p> </i>
             </div>
-           
+
             <div class="col-3">
-                <i class="far fa-flag" aria-hidden="true"  > &nbsp; <p style="margin-top: 10px; margin-left: -9px;">Report</p> </i>
+                <i class="far fa-flag" aria-hidden="true"> &nbsp; <p style="margin-top: 10px; margin-left: -9px;">Report
+                    </p> </i>
             </div>
         </div>
-         
+
         <hr>
-       
+
         <div class="row">
             <div class="col -8">
-                <nb-user
-                    size="large"
-                    [name]="videoData.developer.firstname"
-                    [title]="videoData.developer.email"
+                <nb-user size="large" [name]="videoData.developer.firstname" [title]="videoData.developer.email"
                     [picture]="url+videoData.developer.avatar">
                 </nb-user>
             </div>
-       
+
             <div class="col-4">
                 <div class="float-end">
-                   <button nbButton status="danger" hero (click)="addFollower(videoData.developer._id)"><mat-icon aria-hidden="false">account_circle</mat-icon>&nbsp;&nbsp;{{followtext}}</button>
+                    <button nbButton status="danger" hero (click)="addFollower(videoData.developer._id)">
+                        <mat-icon aria-hidden="false">account_circle</mat-icon>&nbsp;&nbsp;{{followtext}}
+                    </button>
                 </div>
             </div>
         </div>
-            
+
         <hr>
-        <div class="col-5"><h3>Comments ::&nbsp;{{videoData.comments.length}}</h3></div> <hr style="color: black; font-size: 1.2rem;">
-         
+        <div class="col-5">
+            <h3>Comments ::&nbsp;{{videoData.comments.length}}</h3>
+        </div>
+        <hr style="color: black; font-size: 1.2rem;">
+
         <div class="comment-form" *ngIf="userService.loggedin">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Write Comment</mat-label>
@@ -53,62 +61,65 @@
             </mat-form-field>
             <button class="" nbButton (click)="addComment(text.value)">Add Comment</button>
         </div>
-          
+
         <br><br>
-      
-     
+
+
         <div class="comments">
             <div class="comment" *ngFor="let comment of videoData.comments">
-          
-                         <div class="row">
-                               
-                                <div class="col-md-3" style="border: 1px solid grey;">
-                                    <nb-user style="margin-bottom: 6px;"
-                                    size="large"
-                                    [name]="videoData.developer.fullname"
-                                    [title]="videoData.developer.email"
-                                    [picture]="url+videoData.developer.avatar"> 
-                                </nb-user>
-                                    <div class="row">
-                                        <div class="col-6"></div> 
-                                        <div class="col-2"><i class="fas fa-calendar" aria-hidden="true" style="font-size: 0.7rem;"></i></div>
-                                        <div class="col-4">  <p style="font-size: 0.8rem; margin-left: -25px;">{{comment.created | date}}</p></div>                                       
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-9">
-                                    <h5>{{comment.text}}</h5>
-                               </div>
-                         </div>
-                     <br><br> <hr style="color: black; font-weight: bolder; font-size: 1.
-                     2rem
-                     ;">
-      
-             </div>  
-        </div>
-    </div>
-     
-        <div class="col-md-4" style="background-color: white; border-left: 7px solid grey;">
-            <nb-card style="margin-top: 15px;">
-                <nb-card-body>
-                    <h1>Recommendations</h1> <hr>
-                    <div class="container" *ngIf="!loading">
-                        <nb-card *ngFor="let video of videoList" style="border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img [src]="url+video.thumb" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-md-8">
-                                    <h6>
-                                        <a style="text-decoration: none; color: black;" [routerLink]="['/view', video._id]" routerLinkActive="router-link-active" >{{video.title}}</a>
-                                    </h6>
-                                </div>
+
+                <div class="row">
+
+                    <div class="col-md-3" style="border: 1px solid grey;">
+                        <nb-user style="margin-bottom: 6px;" size="large" [name]="comment.developer.fullname"
+                            [title]="comment.developer.email" [picture]="url+comment.developer.avatar">
+                        </nb-user>
+                        <div class="row">
+                            <div class="col-6"></div>
+                            <div class="col-2"><i class="fas fa-calendar" aria-hidden="true"
+                                    style="font-size: 0.7rem;"></i></div>
+                            <div class="col-4">
+                                <p style="font-size: 0.8rem; margin-left: -25px;">{{comment.created | date}}</p>
                             </div>
-                        </nb-card>
+                        </div>
                     </div>
 
-                </nb-card-body>
-            </nb-card>
+                    <div class="col-md-9">
+                        <h5>{{comment.text}}</h5>
+                    </div>
+                </div>
+                <br><br>
+                <hr style="color: black; font-weight: bolder; font-size: 1.
+                     2rem
+                     ;">
+
+            </div>
         </div>
-  </div>
-    
+    </div>
+
+    <div class="col-md-4" style="background-color: white; border-left: 7px solid grey;">
+        <nb-card style="margin-top: 15px;">
+            <nb-card-body>
+                <h1>Recommendations</h1>
+                <hr>
+                <div class="container" *ngIf="!loading">
+                    <nb-card *ngFor="let video of videoList"
+                        style="border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img [src]="url+video.thumb" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-md-8">
+                                <h6>
+                                    <a style="text-decoration: none; color: black;" [routerLink]="['/view', video._id]"
+                                        routerLinkActive="router-link-active">{{video.title}}</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </nb-card>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

@@ -11,6 +11,7 @@ import {
   NbMenuModule,
   NbToastrModule,
   NbSearchModule,
+  NbSelectModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -113,6 +114,7 @@ import { RecommendationsComponent } from './user/recommendations/recommendations
     MatIconModule,
     MatFormFieldModule,
     NbSearchModule,
+    NbSelectModule,
   ],
   exports: [MatFormFieldModule],
   providers: [

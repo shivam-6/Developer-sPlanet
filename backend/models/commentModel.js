@@ -2,13 +2,10 @@
 const mongoose = require('../connection');
 
 const schema = mongoose.Schema({
-  
-  text : String,
+
+  text: String,
   developer: { type: mongoose.Types.ObjectId, ref: 'Users' },
   created: Date,
-  
-  
-
 })
 
 

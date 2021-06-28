@@ -47,7 +47,7 @@ export class ViewVideoComponent implements OnInit {
 
   addComment(text) {
     let formdata = {
-      user: this.userService.currentUser._id,
+      developer: this.userService.currentUser._id,
       text: text,
       created: new Date(),
     };

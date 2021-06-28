@@ -28,7 +28,7 @@ router.get('/getbycategory/:category', (req, res) => {
 
 router.get('/getbyid/:id', (req, res) => {
 
-    Model.findById(req.params.id).populate('developer').populate('comments')
+    Model.findById(req.params.id).populate('developer').populate({ path: 'comments', populate: { path: 'developer' } })
         .then(data => {
             console.log('video fetched by id');
             res.status(200).json(data);

@@ -1,4 +1,3 @@
-  
 import { Component, OnInit } from '@angular/core';
 import { app_config } from 'src/config';
 import { ChatService } from '../services/chat.service';
@@ -12,6 +11,9 @@ import { UserService } from '../services/user.service';
 export class ChatComponent implements OnInit {
   messageList = [];
   url = app_config.api_url + '/';
+  communities = app_config.communities;
+  selCom = 'none';
+
   constructor(
     private chatService: ChatService,
     private userService: UserService
@@ -23,7 +25,6 @@ export class ChatComponent implements OnInit {
       console.log(data);
       this.messageList.push(data);
     });
-
     // this.initMessages();
   }
 
@@ -61,10 +62,16 @@ export class ChatComponent implements OnInit {
       text: e.message,
       user: this.userService.currentUser,
       reply: true,
+      community: this.selCom,
       created: new Date(),
     };
 
     this.messageList.push(message);
     this.chatService.send(message);
+  }
+
+  setRoom(e) {
+    console.log('ds');
+    this.chatService.joinRoom(this.selCom);
   }
 }

@@ -17,7 +17,6 @@ export class LayoutComponent implements OnInit {
       title: 'Profile',
       icon: 'person-outline',
       link: 'profile',
-      
     },
     {
       title: 'Add Video',
@@ -43,6 +42,11 @@ export class LayoutComponent implements OnInit {
       title: 'Your Recommendations',
       icon: 'person-outline',
       link: 'recommendations',
+    },
+    {
+      title: 'Community Chat',
+      icon: 'person-outline',
+      link: 'chat',
     },
   ];
   constructor(

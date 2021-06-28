@@ -28,7 +28,12 @@ io.on('connection', (socket) => {
         console.log(data);
 
         data.reply = false;
-        socket.broadcast.emit('recmsg', data);
+        socket.to(data.community).emit('recmsg', data);
+    })
+
+    socket.on('join', (data) => {
+        console.log(data);
+        socket.join(data);
     })
 
 })

@@ -16,6 +16,10 @@ export class ChatService {
     console.log(this.socket);
   }
 
+  joinRoom(roomname) {
+    this.socket.emit('join', roomname);
+  }
+
   send(data) {
     this.socket.emit('sendmsg', data);
   }
